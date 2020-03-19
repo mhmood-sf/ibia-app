@@ -1,0 +1,11 @@
+# Ignore IDe-specific config files
+.settings
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore priv directory because it's supposed to be private
+priv
