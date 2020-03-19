@@ -1,5 +1,8 @@
 # Ignore IDe-specific config files
 .settings
+.classpath
+.classpath.fix
+.project
 
 # Ignore Gradle project-specific cache directory
 .gradle
