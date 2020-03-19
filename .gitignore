@@ -1,4 +1,4 @@
-# Ignore IDe-specific config files
+# Ignore IDE-specific config files
 .settings
 .classpath
 .classpath.fix
