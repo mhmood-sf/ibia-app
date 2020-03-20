@@ -21,18 +21,16 @@ public class Welcome {
      */
     @FXML
     protected void handleNewConfAction(MouseEvent event) {
-        /*Stage err = Util.error("Unimplemented!");
-        err.show();*/
         try {
-            Scene newConfForm = Util.loadFXMLScene("NewConference");
-            Stage formStage = new Stage();
+            Scene newConfScene = Util.loadFXMLScene("NewConference");
+            Stage newConfStage = new Stage();
 
-            formStage.setTitle("Create new conference");
-            formStage.setScene(newConfForm);
-            formStage.getIcons().add(Util.WINDOW_ICON);
-            formStage.setMinHeight(350);
-            formStage.setMinWidth(350);
-            formStage.show();
+            newConfStage.setTitle("Create new conference");
+            newConfStage.setScene(newConfScene);
+            newConfStage.getIcons().add(Util.WINDOW_ICON);
+            newConfStage.setMinHeight(350);
+            newConfStage.setMinWidth(350);
+            newConfStage.show();
         } catch (Exception e) {
             Util.error("Failed to load window!");
         }
@@ -61,8 +59,17 @@ public class Welcome {
      */
     @FXML
     protected void handleAboutAction(MouseEvent event) {
-        Stage err = Util.error("Unimplemented!");
-        err.show();
+        try {
+            Scene aboutScene = Util.loadFXMLScene("About");
+            Stage aboutStage = new Stage();
+
+            aboutStage.setTitle("About ibia");
+            aboutStage.setScene(aboutScene);
+            aboutStage.setResizable(false);
+            aboutStage.show();
+        } catch (Exception e) {
+            Util.error("Failed to load window!");
+        }
     }
 
     /*

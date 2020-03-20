@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #2A2A38;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="400.0" prefWidth="250.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ibia-logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox prefHeight="300.0" prefWidth="300.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="About" textFill="#bbbbbb">
+                     <font>
+                        <Font name="Roboto Regular" size="32.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="ibia" textFill="#bbbbbb">
+                     <font>
+                        <Font name="Roboto Bold" size="32.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <Pane prefHeight="20.0" prefWidth="275.0" />
+            <Label prefHeight="84.0" prefWidth="275.0" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since " textFill="#bbbbbb" wrapText="true">
+               <font>
+                  <Font name="Roboto Regular" size="14.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="20.0" prefWidth="275.0" />
+            <Label text="License: AGPL v3" textFill="#bbbbbb">
+               <font>
+                  <Font name="Roboto Regular" size="16.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="20.0" prefWidth="275.0" />
+            <Label text="Version: 0.1.0" textFill="#bbbbbb">
+               <font>
+                  <Font name="Roboto Regular" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>
