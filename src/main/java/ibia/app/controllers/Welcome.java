@@ -3,6 +3,7 @@ package ibia.app.controllers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import ibia.app.Util;
@@ -20,20 +21,19 @@ public class Welcome {
      */
     @FXML
     protected void handleNewConfAction(MouseEvent event) {
-        Stage err = Util.error("Unimplemented!");
-        err.show();
-        /*
+        /*Stage err = Util.error("Unimplemented!");
+        err.show();*/
         try {
-            Scene newConfForm = Util.loadFXMLScene("NewConference", 300, 180);
-
+            Scene newConfForm = Util.loadFXMLScene("NewConference");
             Stage formStage = new Stage();
+
             formStage.setTitle("Create new conference");
             formStage.setScene(newConfForm);
+            formStage.getIcons().add(Util.WINDOW_ICON);
             formStage.show();
         } catch (Exception e) {
-            App.error("Failed to load window!");
+            Util.error("Failed to load window!");
         }
-        */
     }
 
     /*

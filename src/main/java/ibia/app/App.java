@@ -2,7 +2,6 @@ package ibia.app;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import ibia.app.Util;
@@ -14,10 +13,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene welcomeScene = Util.loadFXMLScene("Welcome", 1000, 600);
+        Scene welcomeScene = Util.loadFXMLScene("Welcome");
 
         stage.setTitle("ibia");
-        stage.getIcons().add(new Image("/images/ibia-icon2.png"));
+        stage.getIcons().add(Util.WINDOW_ICON);
         stage.setScene(welcomeScene);
         stage.setResizable(false);
         stage.show();
