@@ -10,18 +10,24 @@ import javafx.stage.Stage;
 
 /*
  * Provides some common utility functions.
+ * This class may not be instantiated.
+ * All utility methods and properties are static.
+ * 
  */
-public class Util {
+public final class Util {
     /*
      * Icon for most windows created by ibia.
      */
     public static Image WINDOW_ICON = new Image("/images/ibia-icon2.png");
 
-    /* Don't mind the wonky code, doing it this way helps
+    /* 
+     * Don't mind the wonky code, doing it this way helps
      * provide a better interface through the static methods
      * instead of having to create an instance of Util everytime.
      */
     private static Util instance = new Util();
+
+    private Util() {};
 
     /*
      * Returns an instance of FXMLLoader, with the location set
