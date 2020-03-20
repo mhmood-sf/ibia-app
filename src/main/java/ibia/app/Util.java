@@ -12,9 +12,15 @@ import javafx.stage.Stage;
  * Provides some common utility functions.
  */
 public class Util {
-    // Don't mind the wonky code, doing it this way helps
-    // provide a better interface through the static methods
-    // instead of having to create an instance everytime.
+    /*
+     * Icon for most windows created by ibia.
+     */
+    public static Image WINDOW_ICON = new Image("/images/ibia-icon2.png");
+
+    /* Don't mind the wonky code, doing it this way helps
+     * provide a better interface through the static methods
+     * instead of having to create an instance of Util everytime.
+     */
     private static Util instance = new Util();
 
     /*
@@ -32,14 +38,14 @@ public class Util {
     }
 
     /*
-     * Returns a Scene loaded from one of the fxml files in
-     * resources/fxml based on the `name` parameter.
+     * Allows to easily and quickly load one of the fxml files in
+     * resources/fxml, based on the `name` parameter.
      * 
      * Example:
      * Scene welcomeScene = Util.loadFXMLScene("Welcome", 1000, 600);
      */
-    public static Scene loadFXMLScene(String name, int width, int height) throws Exception {
-        return instance._loadFXMLScene(name, width, height);
+    public static Scene loadFXMLScene(String name) throws Exception {
+        return instance._loadFXMLScene(name);
     }
 
     /*
@@ -66,10 +72,10 @@ public class Util {
     /*
      * Implementation for Util.loadFXMLScene
      */
-    public Scene _loadFXMLScene(String name, int width, int height) throws Exception {
+    public Scene _loadFXMLScene(String name) throws Exception {
         FXMLLoader loader = loadFXML(name);
         Parent content = loader.load();
-        return new Scene(content, width, height);
+        return new Scene(content);
     }
 
     /*
@@ -79,7 +85,7 @@ public class Util {
         try {
             Stage stage = new Stage();
             // Load fxml file
-            Scene scene = _loadFXMLScene("Error", 300, 80);
+            Scene scene = _loadFXMLScene("Error");
             // Cast parent to pane, so that we can access the child node
             Pane pane = (Pane)scene.getRoot();
             // get child node and cast it to Text type
