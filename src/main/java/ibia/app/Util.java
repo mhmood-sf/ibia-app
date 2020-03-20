@@ -87,10 +87,10 @@ public class Util {
 
             text.setText(msg);
             stage.setTitle("Error:");
-            stage.getIcons().add(new Image("/error-icon.png"));
+            stage.getIcons().add(new Image("/images/error-icon.png"));
             stage.setScene(scene);
-    
             stage.setResizable(false);
+
             return stage;
         } catch (Exception e) {
             System.out.println(e);
