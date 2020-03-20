@@ -91,8 +91,8 @@ public class Welcome {
     protected void hoverEffectOn(MouseEvent event) {
         Group btn = (Group)event.getTarget();
 
-        btn.setTranslateX(3);
-        btn.setTranslateY(3);
+        btn.setTranslateX(1);
+        btn.setTranslateY(1);
     }
 
     /*
