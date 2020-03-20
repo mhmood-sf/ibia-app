@@ -30,6 +30,8 @@ public class Welcome {
             formStage.setTitle("Create new conference");
             formStage.setScene(newConfForm);
             formStage.getIcons().add(Util.WINDOW_ICON);
+            formStage.setMinHeight(350);
+            formStage.setMinWidth(350);
             formStage.show();
         } catch (Exception e) {
             Util.error("Failed to load window!");

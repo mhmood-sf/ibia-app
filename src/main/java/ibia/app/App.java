@@ -18,7 +18,8 @@ public class App extends Application {
         stage.setTitle("ibia");
         stage.getIcons().add(Util.WINDOW_ICON);
         stage.setScene(welcomeScene);
-        stage.setResizable(false);
+        stage.setMinHeight(600);
+        stage.setMinWidth(1000);
         stage.show();
     }
 }
