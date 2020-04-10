@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -94,8 +95,11 @@ public final class Util {
             Scene scene = _loadFXMLScene("Error");
             // Cast parent to pane, so that we can access the child node
             Pane pane = (Pane)scene.getRoot();
-            // get child node and cast it to Text type
-            Text text = (Text)(pane.getChildren().get(0));
+            // get child node and cast it to Vbox
+            VBox vbox = (VBox)(pane.getChildren().get(0));
+            // repeat to get to Text
+            Text text = (Text)(vbox.getChildren().get(0));
+
 
             text.setText(msg);
             stage.setTitle("Error:");
@@ -105,6 +109,7 @@ public final class Util {
 
             return stage;
         } catch (Exception e) {
+            // Just crash if there is an error in error handling...
             System.out.println(e);
             System.exit(1);
             return null; // Apparently Java can't tell that this line is unreachable.
