@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import ibia.app.Util;
 
@@ -98,8 +100,9 @@ public class Welcome {
     protected void hoverEffectOn(MouseEvent event) {
         Group btn = (Group)event.getTarget();
 
-        btn.setTranslateX(1);
-        btn.setTranslateY(1);
+        Rectangle rect = (Rectangle)btn.getChildren().get(0);
+        rect.setStrokeWidth(2);
+        rect.setStroke(Color.WHITE);
     }
 
     /*
@@ -109,7 +112,8 @@ public class Welcome {
     protected void hoverEffectOff(MouseEvent event) {
         Group btn = (Group)event.getTarget();
 
-        btn.setTranslateX(0);
-        btn.setTranslateY(0);
+        Rectangle rect = (Rectangle)btn.getChildren().get(0);
+        rect.setStrokeWidth(0);
+        rect.setStroke(null);
     }
 }
