@@ -166,10 +166,10 @@
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Group>
-                  <Group fx:id="exit" onMouseClicked="#handleExitAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                  <Group fx:id="settings" onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                      <children>
                         <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="5.0" text="Exit" textFill="#bbbbbb">
+                        <Label layoutX="9.0" layoutY="5.0" text="Settings" textFill="#bbbbbb">
                            <font>
                               <Font name="Corbel" size="18.0" />
                            </font>
@@ -177,7 +177,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="Close application" textFill="WHITE">
+                        <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="Edit settings and preferences" textFill="WHITE">
                            <font>
                               <Font name="Calibri" size="16.0" />
                            </font>
