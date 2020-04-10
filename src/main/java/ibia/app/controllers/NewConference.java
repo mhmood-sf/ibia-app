@@ -35,7 +35,7 @@ public class NewConference {
      * Simply closes the conference details form.
      */
     @FXML protected void handleCancelNewConfAction(MouseEvent event) {
-        // case source to Button so we can access window
+        // cast source to Button so we can access window
         Button source = (Button)(event.getSource());
         // get window, cast it to Stage so we can close it
         Stage stage = (Stage)(source.getScene().getWindow());
