@@ -52,8 +52,14 @@ public class Welcome {
      */
     @FXML
     protected void handleGuidesAction(MouseEvent event) {
-        Stage err = Util.error("Unimplemented!");
-        err.show();
+        // TODO: update url to point to project wiki once repo is public!
+        String url = "https://github.com/quantomistro/ibia-app";
+
+        try {
+            openURL(url);
+        } catch (Exception e) {
+            Util.error("Failed to open URL! Open an issue at:\n" + url).show();
+        }
     }
 
     /*
@@ -61,12 +67,14 @@ public class Welcome {
      */
     @FXML
     protected void handleAboutAction(MouseEvent event) {
+        // TODO: add JDK/JRE versions to the scene
         try {
             Scene aboutScene = Util.loadFXMLScene("About");
             Stage aboutStage = new Stage();
 
             aboutStage.setTitle("About ibia");
             aboutStage.setScene(aboutScene);
+            aboutStage.getIcons().add(Util.WINDOW_ICON);
             aboutStage.setResizable(false);
             aboutStage.show();
         } catch (Exception e) {
@@ -79,18 +87,11 @@ public class Welcome {
      */
     @FXML
     protected void handleFeedbackAction(MouseEvent event) {
-        // TODO: It doesn't work????
-        // Says "cannot find specified file" when using "start <urL>" on windows!!!
         String url = "https://github.com/quantomistro/ibia-app/issues/";
-        String os = System.getProperty("os.name");
-        String cmd = os.startsWith("Windows") ? "start" : os.startsWith("Linux") ? "xdg-open" : "open";
 
         try {
-            System.out.println(cmd + " " + url);
-            String[] cmdarray = {cmd, url};
-            Runtime.getRuntime().exec(cmdarray);
+            openURL(url);
         } catch (Exception e) {
-            System.out.print(e.getMessage());
             Util.error("Failed to open URL! Open an issue at:\n" + url).show();
         }
     }
@@ -126,5 +127,18 @@ public class Welcome {
         Rectangle rect = (Rectangle)btn.getChildren().get(0);
         rect.setStrokeWidth(0);
         rect.setStroke(null);
+    }
+
+    /*
+     * Runs a shell command to open the given `url`
+     * in the default web browser.
+     */
+    private void openURL(String url) throws Exception {
+        // TODO: Make sure the commands for Linux and Mac actually work!
+        String os = System.getProperty("os.name");
+        String shellCmd = os.startsWith("Windows") ? "cmd /c start" : os.startsWith("Linux") ? "xterm -e xdg-open" : "bash open";
+        String cmd = shellCmd + " " + url;
+
+        Runtime.getRuntime().exec(cmd); 
     }
 }
