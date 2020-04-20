@@ -28,6 +28,10 @@ public final class Util {
      */
     private static Util instance = new Util();
 
+    /*
+     * Private constructor, to reject instantiation since
+     * this class acts as a singleton.
+     */
     private Util() {};
 
     /*
