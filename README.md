@@ -23,7 +23,7 @@ This project is built with gradle. Clone the repo, execute the `gradlew` script,
 Run `gradlew tasks` to view a list of all available gradle tasks.
 
 ## Contributing
-Sorry, not accepting any contributions right now!
+No contributions! It's a graded school assignment! 
 
 ## License
 [GPL-3.0](https://github.com/quantomistro/ibia-app/blob/master/LICENSE)
