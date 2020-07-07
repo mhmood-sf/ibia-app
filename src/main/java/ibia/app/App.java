@@ -16,7 +16,7 @@ public class App extends Application {
         Scene welcomeScene = Util.loadFXMLScene("Welcome");
 
         stage.setTitle("ibia");
-        stage.getIcons().add(Util.WINDOW_ICON);
+        stage.getIcons().add(Util.IBIA_ICON);
         stage.setScene(welcomeScene);
         stage.setMinHeight(600);
         stage.setMinWidth(1000);

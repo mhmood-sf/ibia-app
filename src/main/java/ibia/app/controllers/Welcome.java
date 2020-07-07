@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import ibia.app.Util;
@@ -29,9 +30,10 @@ public class Welcome {
 
             newConfStage.setTitle("Create new conference");
             newConfStage.setScene(newConfScene);
-            newConfStage.getIcons().add(Util.WINDOW_ICON);
+            newConfStage.getIcons().add(Util.IBIA_ICON);
             newConfStage.setMinHeight(350);
             newConfStage.setMinWidth(350);
+            newConfStage.initModality(Modality.APPLICATION_MODAL);
             newConfStage.show();
         } catch (Exception e) {
             Util.error("Failed to load window!");
@@ -52,13 +54,12 @@ public class Welcome {
      */
     @FXML
     protected void handleGuidesAction(MouseEvent event) {
-        // TODO: update url to point to project wiki once repo is public!
         String url = "https://github.com/quantomistro/ibia-app";
 
         try {
             openURL(url);
         } catch (Exception e) {
-            Util.error("Failed to open URL! Open an issue at:\n" + url).show();
+            Util.error("Failed to open URL!").show();
         }
     }
 
@@ -74,8 +75,9 @@ public class Welcome {
 
             aboutStage.setTitle("About ibia");
             aboutStage.setScene(aboutScene);
-            aboutStage.getIcons().add(Util.WINDOW_ICON);
+            aboutStage.getIcons().add(Util.IBIA_ICON);
             aboutStage.setResizable(false);
+            aboutStage.initModality(Modality.APPLICATION_MODAL);
             aboutStage.show();
         } catch (Exception e) {
             Util.error("Failed to load window!").show();
@@ -92,7 +94,7 @@ public class Welcome {
         try {
             openURL(url);
         } catch (Exception e) {
-            Util.error("Failed to open URL! Open an issue at:\n" + url).show();
+            Util.error("Failed to open URL!").show();
         }
     }
 

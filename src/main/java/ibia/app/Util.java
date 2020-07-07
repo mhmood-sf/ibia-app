@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /*
@@ -16,18 +17,16 @@ import javafx.stage.Stage;
  * 
  */
 public final class Util {
+
     /*
      * Icon for most windows created by ibia.
      */
-    public static Image WINDOW_ICON = new Image("/images/ibia-icon2.png");
+    public static Image IBIA_ICON = new Image("/images/ibia-icon2.png");
 
-    /* 
-     * Don't mind the wonky code, doing it this way helps
-     * provide a better interface through the static methods
-     * instead of having to create an instance of Util everytime.
-     */
+    // Keep a private instance so as to provide a static API
     private static Util instance = new Util();
 
+    // Prevent instantiation of this class.
     private Util() {};
 
     /*
@@ -69,7 +68,7 @@ public final class Util {
     /*
      * Implementation for Util.loadFXML
      */
-    public FXMLLoader _loadFXML(String name) {
+    private FXMLLoader _loadFXML(String name) {
         name = name.endsWith(".fxml") ? name : name + ".fxml";
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/" + name));
@@ -79,7 +78,7 @@ public final class Util {
     /*
      * Implementation for Util.loadFXMLScene
      */
-    public Scene _loadFXMLScene(String name) throws Exception {
+    private Scene _loadFXMLScene(String name) throws Exception {
         FXMLLoader loader = loadFXML(name);
         Parent content = loader.load();
         return new Scene(content);
@@ -88,7 +87,7 @@ public final class Util {
     /*
      * Implementation for Util.error
      */
-    public Stage _error(String msg) {
+    private Stage _error(String msg) {
         try {
             Stage stage = new Stage();
             // Load fxml file
@@ -106,6 +105,7 @@ public final class Util {
             stage.getIcons().add(new Image("/images/error-icon.png"));
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
 
             return stage;
         } catch (Exception e) {
