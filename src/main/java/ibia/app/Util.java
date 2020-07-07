@@ -26,7 +26,10 @@ public final class Util {
     // Keep a private instance so as to provide a static API
     private static Util instance = new Util();
 
-    // Prevent instantiation of this class.
+    /*
+     * Private constructor, to reject instantiation since
+     * this class acts as a singleton.
+     */
     private Util() {};
 
     /*
