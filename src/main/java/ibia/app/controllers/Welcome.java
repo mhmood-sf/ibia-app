@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
@@ -18,6 +19,7 @@ public class Welcome {
     @FXML private Group about;
     @FXML private Group feedback;
     @FXML private Group settings;
+    @FXML private HBox breadcrumbs;
 
     /*
      * Event handler for mouse click on newConf card.

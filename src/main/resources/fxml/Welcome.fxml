@@ -7,192 +7,226 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" style="-fx-background-color: #18181C;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.Welcome">
+
+<VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.Welcome">
    <children>
-      <VBox alignment="CENTER" minHeight="600.0" minWidth="400.0">
+      <StackPane minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;">
          <children>
-            <ImageView fitHeight="261.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/ibia-logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" minHeight="600.0" minWidth="600.0">
-         <children>
-            <HBox>
+            <HBox fx:id="breadcrumbs" alignment="CENTER_LEFT" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
                <children>
-                  <Label prefHeight="39.0" prefWidth="71.0" text="Start" textFill="#bbbbbb">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                      <font>
-                        <Font name="Calibri" size="32.0" />
+                        <Font size="14.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Label alignment="CENTER" text="|" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
                   </Label>
                </children>
-               <VBox.margin>
-                  <Insets left="30.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Group fx:id="newConf" onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="7.0" text="New Conference" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="Start a new MUN conference" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin>
-                  </Group>
-                  <Group fx:id="pastConf" onMouseClicked="#handlePastConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="8.0" layoutY="7.0" text="Past Conferences" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="View past MUN conferences" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Group>
-               </children>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Group fx:id="guides" onMouseClicked="#handleGuidesAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="7.0" text="Guides" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="14.0" prefHeight="58.0" prefWidth="226.0" text="Learn how to use this application" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin>
-                  </Group>
-                  <Group fx:id="about" onMouseClicked="#handleAboutAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="5.0" text="About" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="For geeks" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Group>
-               </children>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER">
-               <children>
-                  <Group fx:id="feedback" onMouseClicked="#handleFeedbackAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="7.0" text="Feedback" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="15.0" prefHeight="58.0" prefWidth="226.0" text="Bugs? Complaints? Suggestions?" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <HBox.margin>
-                        <Insets right="30.0" />
-                     </HBox.margin>
-                  </Group>
-                  <Group fx:id="settings" onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
-                     <children>
-                        <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-                        <Label layoutX="9.0" layoutY="5.0" text="Settings" textFill="#bbbbbb">
-                           <font>
-                              <Font name="Corbel" size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="Edit settings and preferences" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Group>
-               </children>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
             </HBox>
          </children>
-      </VBox>
+      </StackPane>
+      <HBox alignment="CENTER" style="-fx-background-color: #18181C;">
+         <children>
+            <VBox alignment="CENTER" minHeight="575.0" minWidth="400.0">
+               <children>
+                  <ImageView fitHeight="261.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ibia-logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minHeight="575.0" minWidth="600.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="71.0" text="Start" textFill="#bbbbbb">
+                           <font>
+                              <Font name="Calibri" size="32.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Group fx:id="newConf" onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="9.0" layoutY="7.0" text="New Conference" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="Start a new MUN conference" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </Group>
+                        <Group fx:id="pastConf" onMouseClicked="#handlePastConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="8.0" layoutY="7.0" text="Past Conferences" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="View past MUN conferences" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Group>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Group fx:id="guides" onMouseClicked="#handleGuidesAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="9.0" layoutY="7.0" text="Guides" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="14.0" prefHeight="58.0" prefWidth="226.0" text="Learn how to use this application" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </Group>
+                        <Group fx:id="about" onMouseClicked="#handleAboutAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="9.0" layoutY="5.0" text="About" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="For geeks" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Group>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Group fx:id="feedback" onMouseClicked="#handleFeedbackAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="9.0" layoutY="7.0" text="Feedback" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="15.0" prefHeight="58.0" prefWidth="226.0" text="Bugs? Complaints? Suggestions?" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </Group>
+                        <Group fx:id="settings" onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                           <children>
+                              <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                              <Label layoutX="9.0" layoutY="5.0" text="Settings" textFill="#bbbbbb">
+                                 <font>
+                                    <Font name="Corbel" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="Edit settings and preferences" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Group>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
-</HBox>
+</VBox>
