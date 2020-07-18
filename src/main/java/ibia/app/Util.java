@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/*
+/**
  * Provides some common utility functions.
  * This class may not be instantiated.
  * All utility methods and properties are static.
@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  */
 public final class Util {
 
-    /*
+    /**
      * Icon for most windows created by ibia.
      */
     public static Image IBIA_ICON = new Image("/images/ibia-icon2.png");
@@ -26,13 +26,13 @@ public final class Util {
     // Keep a private instance so as to provide a static API
     private static Util instance = new Util();
 
-    /*
+    /**
      * Private constructor, to reject instantiation since
      * this class acts as a singleton.
      */
     private Util() {};
 
-    /*
+    /**
      * Returns an instance of FXMLLoader, with the location set
      * to one of the files from resources/fxml/ based on the
      * `name` parameter. The file extension '.fxml' in the `name`
@@ -46,7 +46,7 @@ public final class Util {
         return instance._loadFXML(name);
     }
 
-    /*
+    /**
      * Allows to easily and quickly load one of the fxml files in
      * resources/fxml, based on the `name` parameter.
      * 
@@ -57,7 +57,7 @@ public final class Util {
         return instance._loadFXMLScene(name);
     }
 
-    /*
+    /**
      * Returns a Stage for showing an error window.
      * 
      * Example:
@@ -68,7 +68,7 @@ public final class Util {
         return instance._error(msg);
     }
 
-    /*
+    /**
      * Implementation for Util.loadFXML
      */
     private FXMLLoader _loadFXML(String name) {
@@ -78,7 +78,7 @@ public final class Util {
         return loader;
     }
 
-    /*
+    /**
      * Implementation for Util.loadFXMLScene
      */
     private Scene _loadFXMLScene(String name) throws Exception {
@@ -87,7 +87,7 @@ public final class Util {
         return new Scene(content);
     }
 
-    /*
+    /**
      * Implementation for Util.error
      */
     private Stage _error(String msg) {

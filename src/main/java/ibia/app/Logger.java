@@ -1,6 +1,6 @@
 package ibia.app;
 
-/*
+/**
  * TODO: set flag for dev/prod environment
  * Set a flag for whether the app is running in development environment or production.
  * If it's running in development, log everything to the terminal.

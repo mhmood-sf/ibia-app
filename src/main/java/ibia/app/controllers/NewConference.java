@@ -14,7 +14,7 @@ public class NewConference {
     @FXML Button cancelNewConf;
     @FXML Button createNewConf;
 
-    /*
+    /**
      * Event handler for mouse click on createNewConf.
      * Creates a new conference and opens the conference dashboard.
      */
@@ -69,7 +69,7 @@ public class NewConference {
         // Then redirect to conference dashboard
     }
 
-    /*
+    /**
      * Event handler for mouse click on cancelNewConf.
      * Simply closes the conference details form.
      */

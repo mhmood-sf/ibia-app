@@ -23,7 +23,7 @@ public class Welcome {
     @FXML private HBox main;
     @FXML private Group resumeConf;
 
-    /*
+    /**
      * Event handler for mouse click on newConf card.
      */
     @FXML
@@ -44,7 +44,7 @@ public class Welcome {
         }
     }
 
-    /*
+    /**
      * Event handler for mouse click on pastConf card.
      */
     @FXML
@@ -53,7 +53,7 @@ public class Welcome {
         err.show();
     }
 
-    /*
+    /**
      * Event handler for mouse click on guides card.
      */
     @FXML
@@ -67,7 +67,7 @@ public class Welcome {
         }
     }
 
-    /*
+    /**
      * Event handler for mouse click on about card.
      */
     @FXML
@@ -88,7 +88,7 @@ public class Welcome {
         }
     }
 
-    /*
+    /**
      * Event handler for mouse click on feedback card.
      */
     @FXML
@@ -103,7 +103,7 @@ public class Welcome {
     }
 
 
-    /*
+    /**
      * Event handler for mouse click on exit card.
      */
     @FXML
@@ -111,7 +111,7 @@ public class Welcome {
         Util.error("Unimplemented!").show();
     }
 
-    /*
+    /**
      * Hover effect for buttons
      */
     @FXML
@@ -123,7 +123,7 @@ public class Welcome {
         rect.setStroke(Color.WHITE);
     }
 
-    /*
+    /**
      * Hover effect for buttons
      */
     @FXML
@@ -135,7 +135,7 @@ public class Welcome {
         rect.setStroke(null);
     }
 
-    /*
+    /**
      * Runs a shell command to open the given `url`
      * in the default web browser.
      */
