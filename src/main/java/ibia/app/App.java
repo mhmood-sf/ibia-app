@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import ibia.app.Util;
 
 public class App extends Application {
+    public static Stage window;
 
     public static void main(String[] args) {
         launch(args);
@@ -14,7 +15,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Stage window = stage;
+        window = stage;
 
         Scene welcomeScene = Util.loadFXMLScene("Welcome");
 
