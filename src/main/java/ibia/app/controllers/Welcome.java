@@ -20,6 +20,8 @@ public class Welcome {
     @FXML private Group feedback;
     @FXML private Group settings;
     @FXML private HBox breadcrumbs;
+    @FXML private HBox main;
+    @FXML private Group resumeConf;
 
     /*
      * Event handler for mouse click on newConf card.
