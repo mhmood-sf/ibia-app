@@ -49,7 +49,7 @@
                <children>
                   <VBox alignment="CENTER" minHeight="100.0" minWidth="650.0" VBox.vgrow="NEVER">
                      <children>
-                        <Label prefHeight="39.0" prefWidth="136.0" text="Welcome" textFill="#bbbbbb">
+                        <Label text="Welcome" textFill="#bbbbbb">
                            <font>
                               <Font name="Calibri" size="32.0" />
                            </font>
@@ -102,7 +102,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="Start a new MUN conference" textFill="WHITE">
+                                    <Label layoutX="9.0" layoutY="25.0" prefHeight="40.0" text="Start a new MUN conference" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -126,7 +126,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="25.0" prefHeight="39.0" prefWidth="226.0" text="View past MUN conferences" textFill="WHITE">
+                                    <Label layoutX="9.0" layoutY="25.0" prefHeight="40.0" text="View past MUN conferences" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -154,7 +154,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="14.0" prefHeight="58.0" prefWidth="226.0" text="Learn how to use this application" textFill="WHITE" wrapText="true">
+                                    <Label layoutX="9.0" layoutY="25.0" prefHeight="40.0" text="Learn how to use this application" textFill="WHITE" wrapText="true">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -178,7 +178,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="For geeks" textFill="WHITE">
+                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="40.0" text="For geeks" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -206,7 +206,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="15.0" prefHeight="58.0" prefWidth="226.0" text="Bugs? Complaints? Suggestions?" textFill="WHITE" wrapText="true">
+                                    <Label layoutX="9.0" layoutY="19.0" prefHeight="40.0" text="Bugs? Complaints? Suggestions?" textFill="WHITE" wrapText="true">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -230,7 +230,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="39.0" prefWidth="226.0" text="Edit settings and preferences" textFill="WHITE">
+                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="40.0" text="Edit settings and preferences" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
