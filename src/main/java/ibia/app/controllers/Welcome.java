@@ -23,11 +23,16 @@ public class Welcome {
     @FXML private HBox main;
     @FXML private Group resumeConf;
 
+    @FXML
+    protected void handleResumeConfAction() {
+        Util.error("Unimplemented!").show();
+    }
+
     /**
      * Event handler for mouse click on newConf card.
      */
     @FXML
-    protected void handleNewConfAction(MouseEvent event) {
+    protected void handleNewConfAction() {
         try {
             Scene newConfScene = Util.loadFXMLScene("NewConference");
             Stage newConfStage = new Stage();
@@ -35,12 +40,12 @@ public class Welcome {
             newConfStage.setTitle("Create new conference");
             newConfStage.setScene(newConfScene);
             newConfStage.getIcons().add(Util.IBIA_ICON);
-            newConfStage.setMinHeight(350);
+            newConfStage.setMinHeight(135);
             newConfStage.setMinWidth(350);
             newConfStage.initModality(Modality.APPLICATION_MODAL);
             newConfStage.show();
         } catch (Exception e) {
-            Util.error("Failed to load window!");
+            Util.error("Failed to load window!").show();
         }
     }
 
@@ -48,16 +53,15 @@ public class Welcome {
      * Event handler for mouse click on pastConf card.
      */
     @FXML
-    protected void handlePastConfAction(MouseEvent event) {
-        Stage err = Util.error("Unimplemented!");
-        err.show();
+    protected void handlePastConfAction() {
+        Util.error("Unimplemented!").show();
     }
 
     /**
      * Event handler for mouse click on guides card.
      */
     @FXML
-    protected void handleGuidesAction(MouseEvent event) {
+    protected void handleGuidesAction() {
         String url = "https://github.com/quantomistro/ibia-app";
 
         try {
@@ -71,7 +75,7 @@ public class Welcome {
      * Event handler for mouse click on about card.
      */
     @FXML
-    protected void handleAboutAction(MouseEvent event) {
+    protected void handleAboutAction() {
         // TODO: add JDK/JRE versions to the scene
         try {
             Scene aboutScene = Util.loadFXMLScene("About");
@@ -92,7 +96,7 @@ public class Welcome {
      * Event handler for mouse click on feedback card.
      */
     @FXML
-    protected void handleFeedbackAction(MouseEvent event) {
+    protected void handleFeedbackAction() {
         String url = "https://github.com/quantomistro/ibia-app/issues/";
 
         try {
