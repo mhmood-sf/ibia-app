@@ -23,6 +23,9 @@
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
             <Label alignment="CENTER" text="|" textFill="WHITE">
                <font>
@@ -36,7 +39,7 @@
       </HBox>
       <HBox fx:id="main" alignment="CENTER" minHeight="575.0" minWidth="1000.0" style="-fx-background-color: #18181C;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" minHeight="575.0" minWidth="350.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" minHeight="575.0" minWidth="375.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="261.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,9 +48,9 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox alignment="CENTER" minHeight="575.0" minWidth="650.0" HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" minHeight="575.0" minWidth="625.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" minHeight="100.0" minWidth="650.0" VBox.vgrow="NEVER">
+                  <VBox alignment="CENTER" minHeight="100.0" minWidth="625.0" VBox.vgrow="NEVER">
                      <children>
                         <Label text="Welcome" textFill="#bbbbbb">
                            <font>
@@ -59,16 +62,16 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" minHeight="425.0" minWidth="650.0" VBox.vgrow="NEVER">
+                  <VBox alignment="CENTER" minHeight="425.0" minWidth="625.0" VBox.vgrow="NEVER">
                      <children>
                         <HBox alignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="30.0" />
                            </VBox.margin>
                            <children>
-                              <Group fx:id="resumeConf" onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group fx:id="resumeConf" onMouseClicked="#handleResumeConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="69.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
+                                    <Rectangle fill="#363648" height="70.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Resume Conference" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -93,7 +96,7 @@
                            <children>
                               <Group fx:id="newConf" onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="New Conference" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -117,7 +120,7 @@
                               </Group>
                               <Group fx:id="pastConf" onMouseClicked="#handlePastConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="8.0" layoutY="7.0" text="Past Conferences" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -145,7 +148,7 @@
                            <children>
                               <Group fx:id="guides" onMouseClicked="#handleGuidesAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Guides" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -169,7 +172,7 @@
                               </Group>
                               <Group fx:id="about" onMouseClicked="#handleAboutAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="5.0" text="About" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -178,7 +181,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="40.0" text="For geeks" textFill="WHITE">
+                                    <Label layoutX="9.0" layoutY="23.0" prefHeight="40.0" text="What is this thing anyways?" textFill="WHITE">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
@@ -197,7 +200,7 @@
                            <children>
                               <Group fx:id="feedback" onMouseClicked="#handleFeedbackAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Feedback" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
@@ -221,7 +224,7 @@
                               </Group>
                               <Group fx:id="settings" onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
-                                    <Rectangle fill="#363648" height="88.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+                                    <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="5.0" text="Settings" textFill="#bbbbbb">
                                        <font>
                                           <Font name="Corbel" size="18.0" />
