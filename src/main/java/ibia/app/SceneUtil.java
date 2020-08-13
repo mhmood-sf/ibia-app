@@ -1,5 +1,8 @@
 package ibia.app;
 
+import java.io.IOException;
+import java.util.HashMap;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,49 +14,41 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Provides some common utility functions.
- * This class may not be instantiated.
- * All utility methods and properties are static.
+ * Utility class for loading scenes, specifically
+ * from fxml files.
  * 
  */
-public final class Util {
+public final class SceneUtil {
 
     /**
-     * Icon for most windows created by ibia.
+     * A private instance so as to provide
+     * an easier API with static methods.
      */
-    public static Image IBIA_ICON = new Image("/images/ibia-icon2.png");
-
-    // Keep a private instance so as to provide a static API
-    private static Util instance = new Util();
+    private static SceneUtil instance = new SceneUtil();
 
     /**
      * Private constructor, to reject instantiation since
      * this class acts as a singleton.
      */
-    private Util() {};
+    private SceneUtil() {};
 
     /**
-     * Returns an instance of FXMLLoader, with the location set
-     * to one of the files from resources/fxml/ based on the
-     * `name` parameter. The file extension '.fxml' in the `name`
-     * is optional.
-     * 
-     * Example:
-     * FXMLLoader loader = Util.loadFXML("Welcome");
-     * FXMLLoader anotherLoader = Util.loadFXML("NewConference.fxml");
+     * Cache for holding loaded FXML files.
      */
-    public static FXMLLoader loadFXML(String name) {
-        return instance._loadFXML(name);
-    }
+    private HashMap<String, Scene> cache = new HashMap<>();
 
     /**
-     * Allows to easily and quickly load one of the fxml files in
-     * resources/fxml, based on the `name` parameter.
+     * Loads and returns the scene defined by
+     * the specified fxml file, located in
+     * resources/fxml
      * 
      * Example:
-     * Scene welcomeScene = Util.loadFXMLScene("Welcome", 1000, 600);
+     * Scene welcomeScene = Util.loadFXMLScene("Welcome");
+     * 
+     * @param name - The name of the fxml file (without the extension)
+     * @return The scene loaded from the fxml file
      */
-    public static Scene loadFXMLScene(String name) throws Exception {
+    public static Scene loadFXMLScene(String name) throws IOException {
         return instance._loadFXMLScene(name);
     }
 
@@ -61,7 +56,7 @@ public final class Util {
      * Returns a Stage for showing an error window.
      * 
      * Example:
-     * Stage error = Util.error("My error message");
+     * Stage error = SceneUtil.error("My error message");
      * error.show();
      */
     public static Stage error(String msg) {
@@ -69,26 +64,23 @@ public final class Util {
     }
 
     /**
-     * Implementation for Util.loadFXML
+     * Implementation for Util.loadFXMLScene
      */
-    private FXMLLoader _loadFXML(String name) {
+    private Scene _loadFXMLScene(String name) throws IOException {
+        if (cache.containsKey(name)) return cache.get(name);
+
         name = name.endsWith(".fxml") ? name : name + ".fxml";
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/" + name));
-        return loader;
-    }
-
-    /**
-     * Implementation for Util.loadFXMLScene
-     */
-    private Scene _loadFXMLScene(String name) throws Exception {
-        FXMLLoader loader = loadFXML(name);
         Parent content = loader.load();
-        return new Scene(content);
+        Scene scene = new Scene(content);
+        
+        cache.put(name, scene);
+        return scene;
     }
 
     /**
-     * Implementation for Util.error
+     * Implementation for SceneUtil.error
      */
     private Stage _error(String msg) {
         try {
