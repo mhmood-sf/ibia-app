@@ -9,10 +9,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import ibia.app.App;
+import ibia.app.SceneUtil;
 
-import ibia.app.Util;
-
-public class Welcome {
+public class Home {
     @FXML private Group newConf;
     @FXML private Group pastConf;
     @FXML private Group guides;
@@ -25,7 +25,7 @@ public class Welcome {
 
     @FXML
     protected void handleResumeConfAction() {
-        Util.error("Unimplemented!").show();
+        SceneUtil.error("Unimplemented!").show();
     }
 
     /**
@@ -34,18 +34,18 @@ public class Welcome {
     @FXML
     protected void handleNewConfAction() {
         try {
-            Scene newConfScene = Util.loadFXMLScene("NewConference");
+            Scene newConfScene = SceneUtil.loadFXMLScene("NewConference");
             Stage newConfStage = new Stage();
 
             newConfStage.setTitle("Create new conference");
             newConfStage.setScene(newConfScene);
-            newConfStage.getIcons().add(Util.IBIA_ICON);
+            newConfStage.getIcons().add(App.IBIA_ICON);
             newConfStage.setMinHeight(135);
             newConfStage.setMinWidth(350);
             newConfStage.initModality(Modality.APPLICATION_MODAL);
             newConfStage.show();
         } catch (Exception e) {
-            Util.error("Failed to load window!").show();
+            SceneUtil.error("Failed to load window!").show();
         }
     }
 
@@ -54,7 +54,7 @@ public class Welcome {
      */
     @FXML
     protected void handlePastConfAction() {
-        Util.error("Unimplemented!").show();
+        SceneUtil.error("Unimplemented!").show();
     }
 
     /**
@@ -67,7 +67,7 @@ public class Welcome {
         try {
             openURL(url);
         } catch (Exception e) {
-            Util.error("Failed to open URL!").show();
+            SceneUtil.error("Failed to open URL!").show();
         }
     }
 
@@ -78,17 +78,17 @@ public class Welcome {
     protected void handleAboutAction() {
         // TODO: add JDK/JRE versions to the scene
         try {
-            Scene aboutScene = Util.loadFXMLScene("About");
+            Scene aboutScene = SceneUtil.loadFXMLScene("About");
             Stage aboutStage = new Stage();
 
             aboutStage.setTitle("About ibia");
             aboutStage.setScene(aboutScene);
-            aboutStage.getIcons().add(Util.IBIA_ICON);
+            aboutStage.getIcons().add(App.IBIA_ICON);
             aboutStage.setResizable(false);
             aboutStage.initModality(Modality.APPLICATION_MODAL);
             aboutStage.show();
         } catch (Exception e) {
-            Util.error("Failed to load window!").show();
+            SceneUtil.error("Failed to load window!").show();
         }
     }
 
@@ -102,7 +102,7 @@ public class Welcome {
         try {
             openURL(url);
         } catch (Exception e) {
-            Util.error("Failed to open URL!").show();
+            SceneUtil.error("Failed to open URL!").show();
         }
     }
 
@@ -112,7 +112,7 @@ public class Welcome {
      */
     @FXML
     protected void handleSettingsAction() {
-        Util.error("Unimplemented!").show();
+        SceneUtil.error("Unimplemented!").show();
     }
 
     /**
@@ -142,6 +142,7 @@ public class Welcome {
     /**
      * Runs a shell command to open the given `url`
      * in the default web browser.
+     * TODO: find a better way to do this :P
      */
     private void openURL(String url) throws Exception {
         // TODO: Make sure the commands for Linux and Mac actually work!
