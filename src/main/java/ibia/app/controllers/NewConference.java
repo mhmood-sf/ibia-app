@@ -1,6 +1,6 @@
 package ibia.app.controllers;
 
-import ibia.app.Util;
+import ibia.app.SceneUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -22,13 +22,13 @@ public class NewConference {
 
         // validate form data
         if (name.isEmpty()) {
-            Util.error("The conference name is required!").show();
+            SceneUtil.error("The conference name is required!").show();
         }
         else if (name.length() > 50) {
-            Util.error("The conference name must be between 1 and 50 characters!\nTry using an abbreviation.").show();
+            SceneUtil.error("The conference name must be between 1 and 50 characters!\nTry using an abbreviation.").show();
         }
         else {
-            Util.error("Unimplemented!").show();
+            SceneUtil.error("Unimplemented!").show();
         }
     }
 
