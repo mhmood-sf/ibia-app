@@ -3,6 +3,7 @@ package ibia.app;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import ibia.app.templating.TemplateEngine;
@@ -41,13 +42,12 @@ public class App extends Application {
 
         window.setTitle("ibia");
         window.getIcons().add(IBIA_ICON);
-        window.setMinHeight(650);
-        window.setMinWidth(1050);
         window.show();
 
         try {
             App.navigate("Home");
         } catch (Exception e) {
+            System.out.println(e);
             System.out.println("Error loading window!");
             window.close();
             System.exit(1);
@@ -63,25 +63,25 @@ public class App extends Application {
     }
 
     public static void navigate(String location) throws Exception {
-        if (currentLocation.equals(location)) return;
+        if (currentLocation != null && currentLocation.equals(location)) return;
 
         if (location.equals("Home")) {
             Scene home = TemplateEngine.loadHome();
-            window.setScene(home);
+            updateScene(home);
         } else {
             String entity = location.substring(0, 3);
             switch (entity) {
                 case "CON":
                     Scene conferenceScene = TemplateEngine.loadConference(location);
-                    window.setScene(conferenceScene);
+                    updateScene(conferenceScene);
                     break;
                 case "COM":
                     Scene committeeScene = TemplateEngine.loadCommittee(location);
-                    window.setScene(committeeScene);
+                    updateScene(committeeScene);
                     break;
                 case "DEL":
                     Scene delegateScene = TemplateEngine.loadDelegate(location);
-                    window.setScene(delegateScene);
+                    updateScene(delegateScene);
                     break;
                 default:
                     throw new Exception(
@@ -92,5 +92,19 @@ public class App extends Application {
         }
 
         setCurrentLocation(location);
+    }
+
+    private static void updateScene(Scene scene) {
+        // TODO: fix this
+        // Hacky workaround for the resizing problem
+        // - setScene first - the Scene MUST be responsive
+        // update min height/width - automatically resizes scene
+        // the min height/width is taken from the scene and
+        // then 50 is added to both, to account for the extra
+        // space taken up by (i think) the native window bar at the top.
+        VBox container = (VBox)scene.getRoot();
+        window.setScene(scene);
+        window.setMinHeight(container.getMinHeight() + 50);
+        window.setMinWidth(container.getMinWidth() + 50);
     }
 }
