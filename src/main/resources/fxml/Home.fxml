@@ -14,9 +14,9 @@
 
 <VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.Home">
    <children>
-      <HBox fx:id="breadcrumbs" alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
+      <HBox alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text fx:id="homeCrumb" fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
