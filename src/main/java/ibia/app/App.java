@@ -13,6 +13,7 @@ import ibia.app.templating.TemplateEngine;
 // TODO: make scenes for committees + delegates too!
 // TODO: add messages to ALL exceptions.
 // TODO: see how to use CSS w/ JavaFX to add themes
+// TODO: better naming for methods in controllers please!
 
 public class App extends Application {
     /**
@@ -38,8 +39,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        window = stage;
 
+        window = stage;
         window.setTitle("ibia");
         window.getIcons().add(IBIA_ICON);
         window.show();
@@ -58,11 +59,16 @@ public class App extends Application {
         return currentLocation;
     }
 
+    // Keep method private to prevent external classes
+    // from changing currentLocation. The only way to
+    // change it should be by using App.navigate(location)
     private static void setCurrentLocation(String location) {
         currentLocation = location;
     }
 
     public static void navigate(String location) throws Exception {
+        // If it's navigating to the same location,
+        // return early.
         if (currentLocation != null && currentLocation.equals(location)) return;
 
         if (location.equals("Home")) {
@@ -84,7 +90,7 @@ public class App extends Application {
                     updateScene(delegateScene);
                     break;
                 default:
-                    throw new Exception(
+                    throw new IllegalArgumentException(
                         "Invalid location provided: " + location +
                         "\nLocation must be an entity ID or 'Home'."
                         );
@@ -104,7 +110,7 @@ public class App extends Application {
         // space taken up by (i think) the native window bar at the top.
         VBox container = (VBox)scene.getRoot();
         window.setScene(scene);
-        window.setMinHeight(container.getMinHeight() + 50);
-        window.setMinWidth(container.getMinWidth() + 50);
+        window.setMinHeight(container.getMinHeight() + 40);
+        window.setMinWidth(container.getMinWidth() + 40);
     }
 }
