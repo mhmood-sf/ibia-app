@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 
 public class NewConference {
     @FXML TextField confName;
-    @FXML Button cancelNewConf;
-    @FXML Button createNewConf;
 
     /**
      * Event handler for mouse click on createNewConf.

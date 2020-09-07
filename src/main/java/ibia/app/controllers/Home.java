@@ -4,25 +4,18 @@ import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ibia.app.App;
 import ibia.app.SceneUtil;
 
 public class Home {
-    @FXML private Group newConf;
-    @FXML private Group pastConf;
-    @FXML private Group guides;
-    @FXML private Group about;
-    @FXML private Group feedback;
-    @FXML private Group settings;
-    @FXML private HBox breadcrumbs;
-    @FXML private HBox main;
-    @FXML private Group resumeConf;
-
+    /**
+     * Event handler for mouse click on resumeConf card.
+     */
     @FXML
     protected void handleResumeConfAction() {
         SceneUtil.error("Unimplemented!").show();
@@ -137,6 +130,18 @@ public class Home {
         Rectangle rect = (Rectangle)btn.getChildren().get(0);
         rect.setStrokeWidth(0);
         rect.setStroke(null);
+    }
+
+    @FXML
+    protected void crumbHoverEffectOn(MouseEvent event) {
+        Text text = (Text)event.getTarget();
+        text.setUnderline(true);
+    }
+
+    @FXML
+    protected void crumbHoverEffectOff(MouseEvent event) {
+        Text text = (Text)event.getTarget();
+        text.setUnderline(false);
     }
 
     /**
