@@ -1,57 +1,64 @@
 package ibia.app.templating;
 
+import java.io.IOException;
+
+import ibia.app.SceneUtil;
+import ibia.core.DbDriver;
 import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
-import ibia.core.entities.Delegate;
+
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class CommitteeTemplate {
-    public CommitteeTemplate(String id) throws IllegalArgumentException {
+    private String id;
+    private Scene template;
+    private Committee instance;
+
+    public CommitteeTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("COM")) throw new IllegalArgumentException("Invalid ID provided.");
+
+        this.id = id;
+        this.template = SceneUtil.loadFXMLScene("CommitteeTemplate");
+        this.instance = DbDriver.fetchOne(Committee.class, id);
     }
 
     public Scene fill() {
+        setBreadcrumbsNode();
+        setNameNode();
+        setIdNode();
+
         return null;
     }
 
-    private static HBox getBreadcrumbs(Scene template) {
+    private HBox getBreadcrumbsNode() {
         VBox container = (VBox)template.getRoot();
         return (HBox)container.getChildren().get(0);
     }
 
-    private void fillBreadcrumbs(Scene template, Delegate del, Committee com, Conference con) {
-        getBreadcrumbs(template);
+    private void setBreadcrumbsNode() {
+        getBreadcrumbsNode();
+        DbDriver.fetchOne(Conference.class, instance.getConferenceId());
         return;
     }
 
-    private void fillBreadcrumbs(Scene template, Committee com, Conference con) {
-        getBreadcrumbs(template);
-        return;
-    }
-
-    private void fillBreadcrumbs(Scene template, Conference con) {
-        getBreadcrumbs(template);
-        return;
-    }
-
-    private Text getNameNode(Scene template) {
+    private Text getNameNode() {
         return null;
     }
 
-    private void fillNameNode(Scene template) {
-        getNameNode(template);
+    private void setNameNode() {
+        getNameNode();
         return;
     }
 
-    private Text getIdNode(Scene template) {
+    private Text getIdNode() {
         return null;
     }
 
-    private void fillIdNode(Scene template, String id) {
-        getIdNode(template);
+    private void setIdNode() {
+        getIdNode();
         return;
     }
 }

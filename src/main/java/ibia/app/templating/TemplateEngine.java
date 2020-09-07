@@ -1,5 +1,7 @@
 package ibia.app.templating;
 
+import java.io.IOException;
+
 import javafx.scene.Scene;
 
 /**
@@ -15,15 +17,15 @@ public class TemplateEngine {
         return new HomeTemplate().fill();
     }
 
-    public static Scene loadConference(String id) throws Exception {
+    public static Scene loadConference(String id) throws IllegalArgumentException, IOException {
         return new ConferenceTemplate(id).fill();
     }
 
-    public static Scene loadCommittee(String id) throws Exception {
+    public static Scene loadCommittee(String id) throws IllegalArgumentException, IOException {
         return new CommitteeTemplate(id).fill();
     }
 
-    public static Scene loadDelegate(String id) throws Exception {
+    public static Scene loadDelegate(String id) throws IllegalArgumentException, IOException {
         return new DelegateTemplate(id).fill();
     }
 }
