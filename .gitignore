@@ -12,3 +12,6 @@ build
 
 # Ignore priv directory because it's supposed to be private
 priv
+
+# Ignore db dir
+data
