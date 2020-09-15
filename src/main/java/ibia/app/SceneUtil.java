@@ -3,6 +3,7 @@ package ibia.app;
 import java.io.IOException;
 import java.util.HashMap;
 
+import ibia.core.Log;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -100,14 +101,18 @@ public final class SceneUtil {
             stage.getIcons().add(new Image("/images/error-icon.png"));
             stage.setScene(scene);
             stage.setResizable(false);
+
+            // Makes it so that error popup must be dealt
+            // with before being able to interact with the
+            // rest of the app
             stage.initModality(Modality.APPLICATION_MODAL);
 
             return stage;
         } catch (Exception e) {
-            // Just crash if there is an error in error handling...
-            System.out.println(e);
+            // Stop application if there is an error in error handling...
+            Log.error(e.getMessage());
             System.exit(1);
-            return null; // Apparently Java can't tell that this line is unreachable.
+            return null;
         }
     }
 }

@@ -1,6 +1,7 @@
 package ibia.app.controllers;
 
 import ibia.app.SceneUtil;
+import ibia.core.Log;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -26,7 +27,12 @@ public class NewConference {
             SceneUtil.error("The conference name must be between 1 and 50 characters!\nTry using an abbreviation.").show();
         }
         else {
-            SceneUtil.error("Unimplemented!").show();
+            try {
+                throw new Exception("Unimplemented");
+            } catch (Exception e) {
+                Log.error(e.getMessage());
+                SceneUtil.error("Unimplemented!").show();
+            }
         }
     }
 
