@@ -17,7 +17,7 @@ public class ConferenceTemplate {
     private Conference instance;
 
     public ConferenceTemplate(String id) throws IllegalArgumentException, IOException {
-        if (!id.startsWith("COM")) throw new IllegalArgumentException("Invalid ID provided.");
+        if (!id.startsWith("CON")) throw new IllegalArgumentException("Invalid ID provided.");
 
         this.id = id;
         this.template = SceneUtil.loadFXMLScene("ConferenceTemplate");
@@ -29,7 +29,7 @@ public class ConferenceTemplate {
         setNameNode();
         setIdNode();
 
-        return null;
+        return template;
     }
 
     private HBox getBreadcrumbs() {

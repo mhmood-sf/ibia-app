@@ -19,7 +19,7 @@ public class DelegateTemplate {
     private Delegate instance;
 
     public DelegateTemplate(String id) throws IllegalArgumentException, IOException {
-        if (!id.startsWith("COM")) throw new IllegalArgumentException("Invalid ID provided.");
+        if (!id.startsWith("DEL")) throw new IllegalArgumentException("Invalid ID provided.");
 
         this.id = id;
         this.template = SceneUtil.loadFXMLScene("DelegateTemplate");
@@ -31,7 +31,7 @@ public class DelegateTemplate {
         setNameNode();
         setIdNode();
 
-        return null;
+        return template;
     }
 
     private HBox getBreadcrumbsNode() {

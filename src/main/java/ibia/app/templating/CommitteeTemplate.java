@@ -30,7 +30,7 @@ public class CommitteeTemplate {
         setNameNode();
         setIdNode();
 
-        return null;
+        return template;
     }
 
     private HBox getBreadcrumbsNode() {
