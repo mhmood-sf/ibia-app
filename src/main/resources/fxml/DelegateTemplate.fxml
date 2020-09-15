@@ -87,9 +87,9 @@
                <children>
                   <HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegation">
                            <font>
-                              <Font size="42.0" />
+                              <Font size="36.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="20.0" />
@@ -133,7 +133,39 @@
                         </Button>
                      </children>
                   </HBox>
-                  <VBox minHeight="475.0" minWidth="1000.0" VBox.vgrow="ALWAYS" />
+                  <VBox minHeight="475.0" minWidth="1000.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Name: " textFill="#bbbbbb">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <Label text="Committee: " textFill="#bbbbbb">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children></VBox>
                </children>
             </VBox>
          </children>
