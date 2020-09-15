@@ -21,6 +21,11 @@ dependencies {
     // This dependency is used by the application.
     implementation files('libs/ibia-core-java.jar')
 
+    runtime 'org.hibernate:hibernate-core:5.4.16.Final'
+    runtime 'com.google.code.gson:gson:2.8.6'
+    runtime 'com.h2database:h2:1.4.200'
+    runtime 'javax.persistence:javax.persistence-api:2.2'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
@@ -28,4 +33,10 @@ dependencies {
 application {
     // Define the main class for the application
     mainClassName = 'ibia.app.App'
+}
+
+tasks {
+    clean {
+        delete 'build', 'data'
+    }
 }
