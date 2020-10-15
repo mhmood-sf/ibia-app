@@ -5,7 +5,7 @@ import ibia.app.SceneUtil;
 
 import ibia.core.DbDriver;
 import ibia.core.entities.Conference;
-
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 public class ConferenceTemplate {
     private String id;
     private Scene template;
+    private Parent root;
     private Conference instance;
 
     public ConferenceTemplate(String id) throws IllegalArgumentException, IOException {
@@ -21,6 +22,7 @@ public class ConferenceTemplate {
 
         this.id = id;
         this.template = SceneUtil.loadFXMLScene("ConferenceTemplate");
+        this.root = template.getRoot();
         this.instance = DbDriver.fetchOne(Conference.class, id);
     }
 

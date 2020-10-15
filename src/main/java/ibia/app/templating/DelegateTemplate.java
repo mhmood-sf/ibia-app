@@ -7,7 +7,7 @@ import ibia.core.DbDriver;
 import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
-
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 public class DelegateTemplate {
     private String id;
     private Scene template;
+    private Parent root;
     private Delegate instance;
 
     public DelegateTemplate(String id) throws IllegalArgumentException, IOException {
@@ -23,6 +24,7 @@ public class DelegateTemplate {
 
         this.id = id;
         this.template = SceneUtil.loadFXMLScene("DelegateTemplate");
+        this.root = template.getRoot();
         this.instance = DbDriver.fetchOne(Delegate.class, id);
     }
 
