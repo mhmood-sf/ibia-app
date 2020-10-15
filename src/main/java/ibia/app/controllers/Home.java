@@ -1,16 +1,22 @@
 package ibia.app.controllers;
 
 import javafx.fxml.FXML;
+import java.awt.Desktop;
+import java.net.URI;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import ibia.app.App;
 import ibia.app.SceneUtil;
+
 
 public class Home {
     /**
@@ -69,7 +75,6 @@ public class Home {
      */
     @FXML
     protected void handleAboutAction() {
-        // TODO: add JDK/JRE versions to the scene
         try {
             Scene aboutScene = SceneUtil.loadFXMLScene("About");
             Stage aboutStage = new Stage();
@@ -132,12 +137,18 @@ public class Home {
         rect.setStroke(null);
     }
 
+    /**
+     * Hover effect for breadcrumbs
+     */
     @FXML
     protected void crumbHoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
+    /**
+     * Hover effect for breadcrumbs
+     */
     @FXML
     protected void crumbHoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();
@@ -147,14 +158,11 @@ public class Home {
     /**
      * Runs a shell command to open the given `url`
      * in the default web browser.
-     * TODO: find a better way to do this :P
+     * @param url the url to open
      */
     private void openURL(String url) throws Exception {
-        // TODO: Make sure the commands for Linux and Mac actually work!
-        String os = System.getProperty("os.name");
-        String shellCmd = os.startsWith("Windows") ? "cmd /c start" : os.startsWith("Linux") ? "xterm -e xdg-open" : "bash open";
-        String cmd = shellCmd + " " + url;
-
-        Runtime.getRuntime().exec(cmd); 
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            Desktop.getDesktop().browse(new URI(url));
+        }
     }
 }
