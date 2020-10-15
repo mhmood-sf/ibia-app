@@ -6,19 +6,16 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 import ibia.app.templating.TemplateEngine;
 import ibia.core.Log;
 
-// TODO: add proper documentation
-// TODO: get delegate-placeholder.png image
-// TODO: make scenes for committees + delegates too!
-// TODO: add messages to ALL exceptions.
-// TODO: see how to use CSS w/ JavaFX to add themes
-// TODO: better naming for methods in controllers please!
-// TODO: Improve error logging.
-// TODO: logging: https://stackoverflow.com/questions/751736/how-to-get-java-logger-output-to-file-by-default
-// TODO: logging: https://stackoverflow.com/questions/14701617/javafx-logging-example
-
+/**
+ * The main class for ibia.app. Controls
+ * the main application stage, and handles
+ * navigation logic.
+ */
 public class App extends Application {
     /**
      * Icon for most windows created by ibia.
@@ -42,6 +39,9 @@ public class App extends Application {
         launch(args);
     }
 
+    /**
+     * Loads main stage and starts application.
+     */
     @Override
     public void start(Stage stage) {
 
@@ -58,18 +58,34 @@ public class App extends Application {
         }
     }
 
+    /**
+     * Gets current location of the main application stage
+     */
     public static String getCurrentLocation() {
         return currentLocation;
     }
 
-    // Keep method private to prevent external classes
-    // from changing currentLocation. The only way to
-    // change it should be by using App.navigate(location)
+    /**
+     * Sets the internal stage location variable.
+     * This is controlled by the App class. To change
+     * the application's stage location, use App.navigate()
+     * @param location
+     */
     private static void setCurrentLocation(String location) {
         currentLocation = location;
     }
 
-    public static void navigate(String location) throws Exception {
+    /**
+     * Changes the scene displayed on the main application
+     * stage based on the location given. The location can
+     * be an entity ID, in which case it will call the
+     * TemplateEngine to load and fill in the entity
+     * template with data for the given ID and display it.
+     * The location may also be the string "Home", in which
+     * case the Home screen template will be loaded.
+     * @param location
+     */
+    public static void navigate(String location) throws IllegalArgumentException, IOException {
         // If navigating to the same location, no need to update the scsene.
         if (currentLocation != null && currentLocation.equals(location)) return;
 
@@ -102,6 +118,10 @@ public class App extends Application {
         setCurrentLocation(location);
     }
 
+    /**
+     * Updates the scene on the application stage.
+     * @param scene the scene to display.
+     */
     private static void updateScene(Scene scene) {
         // Hacky workaround for the resizing problem
         // - setScene first - the Scene MUST be responsive
