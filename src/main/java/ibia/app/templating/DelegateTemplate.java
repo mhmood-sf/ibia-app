@@ -14,7 +14,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class DelegateTemplate {
-    private String id;
     private Scene template;
     private Parent root;
     private Delegate instance;
@@ -22,16 +21,15 @@ public class DelegateTemplate {
     public DelegateTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("DEL")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.id = id;
         this.template = SceneUtil.loadFXMLScene("DelegateTemplate");
         this.root = template.getRoot();
         this.instance = DbDriver.fetchOne(Delegate.class, id);
     }
 
     public Scene fill() {
-        setBreadcrumbsNode();
-        setNameNode();
-        setIdNode();
+        fillBreadcrumbsNode();
+        fillNameNode();
+        fillIdNode();
 
         return template;
     }
@@ -41,7 +39,7 @@ public class DelegateTemplate {
         return (HBox)container.getChildren().get(0);
     }
 
-    private void setBreadcrumbsNode() {
+    private void fillBreadcrumbsNode() {
         getBreadcrumbsNode();
         Committee com = DbDriver.fetchOne(Committee.class, instance.getCommitteeId());
         DbDriver.fetchOne(Conference.class, com.getConferenceId());
@@ -52,7 +50,7 @@ public class DelegateTemplate {
         return null;
     }
 
-    private void setNameNode() {
+    private void fillNameNode() {
         getNameNode();
         return;
     }
@@ -61,7 +59,7 @@ public class DelegateTemplate {
         return null;
     }
 
-    private void setIdNode() {
+    private void fillIdNode() {
         getIdNode();
         return;
     }

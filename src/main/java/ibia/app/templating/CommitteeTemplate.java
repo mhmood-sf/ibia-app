@@ -13,7 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class CommitteeTemplate {
-    private String id;
     private Scene template;
     private Parent root;
     private Committee instance;
@@ -21,16 +20,15 @@ public class CommitteeTemplate {
     public CommitteeTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("COM")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.id = id;
         this.template = SceneUtil.loadFXMLScene("CommitteeTemplate");
         this.root = template.getRoot();
         this.instance = DbDriver.fetchOne(Committee.class, id);
     }
 
     public Scene fill() {
-        setBreadcrumbsNode();
-        setNameNode();
-        setIdNode();
+        fillBreadcrumbsNode();
+        fillNameNode();
+        fillIdNode();
 
         return template;
     }
@@ -40,7 +38,7 @@ public class CommitteeTemplate {
         return (HBox)container.getChildren().get(0);
     }
 
-    private void setBreadcrumbsNode() {
+    private void fillBreadcrumbsNode() {
         getBreadcrumbsNode();
         DbDriver.fetchOne(Conference.class, instance.getConferenceId());
         return;
@@ -50,7 +48,7 @@ public class CommitteeTemplate {
         return null;
     }
 
-    private void setNameNode() {
+    private void fillNameNode() {
         getNameNode();
         return;
     }
@@ -59,7 +57,7 @@ public class CommitteeTemplate {
         return null;
     }
 
-    private void setIdNode() {
+    private void fillIdNode() {
         getIdNode();
         return;
     }
