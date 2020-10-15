@@ -87,7 +87,7 @@
                            </font>
                         </Text>
                         <Pane HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: #363648;" text="Edit" textFill="WHITE">
+                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -98,7 +98,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #363648;" text="Delete" textFill="WHITE">
+                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
