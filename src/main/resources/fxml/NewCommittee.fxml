@@ -13,19 +13,19 @@
    <children>
       <HBox alignment="CENTER">
          <children>
-            <Label text="Committee Name" textFill="#bbbbbb">
+            <Label text="New Committee" textFill="#bbbbbb">
                <font>
                   <Font name="Calibri" size="22.0" />
                </font>
                <HBox.margin>
-                  <Insets />
+                  <Insets top="15.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
-      <TextField fx:id="confName" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+      <TextField fx:id="confName" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
          <VBox.margin>
-            <Insets left="15.0" right="15.0" />
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
          <font>
             <Font size="14.0" />
@@ -54,7 +54,7 @@
             </Button>
          </children>
          <VBox.margin>
-            <Insets left="15.0" right="15.0" top="10.0" />
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </HBox>
    </children>

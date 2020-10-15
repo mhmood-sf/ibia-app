@@ -4,8 +4,10 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -13,26 +15,36 @@
    <children>
       <HBox alignment="CENTER">
          <children>
-            <Label text="Delegate Name" textFill="#bbbbbb">
+            <Label text="New Delegate" textFill="#bbbbbb">
                <font>
                   <Font name="Calibri" size="22.0" />
                </font>
                <HBox.margin>
-                  <Insets />
+                  <Insets top="15.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
-      <TextField fx:id="confName" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+      <TextField fx:id="confName" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
          <VBox.margin>
-            <Insets left="15.0" right="15.0" />
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <TextField fx:id="confName1" promptText="Delegation (Use custom or choose one below)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+      </TextField>
       <HBox alignment="CENTER_RIGHT">
          <children>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Choose Delegation" textFill="WHITE" />
+            <Pane HBox.hgrow="ALWAYS" />
             <Button fx:id="cancelNewConf" mnemonicParsing="false" onMouseClicked="#handleCancelNewConfAction" style="-fx-background-color: #6E6C78;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="14.0" />
@@ -54,7 +66,7 @@
             </Button>
          </children>
          <VBox.margin>
-            <Insets left="15.0" right="15.0" top="10.0" />
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </HBox>
    </children>

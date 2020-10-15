@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.Home">
+<VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.ConferenceView">
    <children>
       <HBox fx:id="breadcrumbs" alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text fx:id="homeCrumb" fill="WHITE" onMouseClicked="#navigateHome" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
+            <Text fx:id="conferenceCrumb" fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
                <font>
                   <Font size="14.0" />
                </font>
@@ -51,7 +51,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
+                        <Text fx:id="name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
                            <font>
                               <Font size="42.0" />
                            </font>
@@ -67,13 +67,13 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Text fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+                        <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
                         <Pane HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
+                        <Button fx:id="edit" mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -84,7 +84,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
+                        <Button fx:id="delete" mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
@@ -116,14 +116,14 @@
                                        <children>
                                           <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="325.0" style="-fx-background-color: transparent;">
                                              <content>
-                                                <VBox style="-fx-background-color: #18181C;" />
+                                                <VBox fx:id="committeesList" style="-fx-background-color: #18181C;" />
                                              </content>
                                           </ScrollPane>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="75.0">
                                        <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Add New Committee" textFill="WHITE">
+                                          <Button fx:id="newCommittee" mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Add New Committee" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -147,10 +147,119 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <HBox prefWidth="300.0">
+                                                   <children>
+                                                      <Label text="Opened:" textAlignment="RIGHT" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Pane prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                                                      <Text fx:id="created" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="01-01-2020">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <HBox prefWidth="300.0">
+                                                   <children>
+                                                      <Label text="Status:" textAlignment="RIGHT" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Pane prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                                                      <Text fx:id="status" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ONGOING">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <HBox prefWidth="300.0">
+                                                   <children>
+                                                      <Label text="Committees:" textAlignment="RIGHT" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Pane prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                                                      <Text fx:id="committees" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <HBox prefWidth="300.0">
+                                                   <children>
+                                                      <Label text="Delegates:" textAlignment="RIGHT" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Pane prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                                                      <Text fx:id="delegates" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <HBox prefWidth="300.0">
+                                                   <children>
+                                                      <Label text="Resolutions:" textAlignment="RIGHT" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Pane prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                                                      <Text fx:id="resolutions" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Passed">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children></VBox>
                                     <HBox alignment="CENTER" prefHeight="75.0">
                                        <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Finish Conference" textFill="WHITE">
+                                          <Button fx:id="statusButton" mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Finish Conference" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
