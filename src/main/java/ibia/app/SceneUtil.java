@@ -65,6 +65,16 @@ public final class SceneUtil {
     }
 
     /**
+     * Returns a stage showing a confirmation message,
+     * along with Confirm and Cancel buttons.
+     * @param msg
+     * @return
+     */
+    public static Stage confirm(String msg) {
+        return instance._confirm(msg);
+    }
+
+    /**
      * Implementation for Util.loadFXMLScene
      */
     private Scene _loadFXMLScene(String name) throws IOException {
@@ -98,7 +108,7 @@ public final class SceneUtil {
 
             text.setText(msg);
             stage.setTitle("Error:");
-            stage.getIcons().add(new Image("/images/error-icon.png"));
+            stage.getIcons().add(new Image("/images/red-circle.png"));
             stage.setScene(scene);
             stage.setResizable(false);
 
@@ -109,7 +119,42 @@ public final class SceneUtil {
 
             return stage;
         } catch (Exception e) {
-            // Stop application if there is an error in error handling...
+            // If there is an error, log it and stop the application.
+            Log.error(e.getMessage());
+            System.exit(1);
+            return null;
+        }
+    }
+
+    /**
+     * Implementation for SceneUtil.confirm
+     */
+    public Stage _confirm(String msg) {
+        try {
+            Stage stage = new Stage();
+            // Load fxml file
+            Scene scene = _loadFXMLScene("Error");
+            // Cast parent to pane, so that we can access the child node
+            Pane pane = (Pane)scene.getRoot();
+            // get child node and cast it to Vbox
+            VBox vbox = (VBox)(pane.getChildren().get(0));
+            // repeat to get to Text
+            Text text = (Text)(vbox.getChildren().get(0));
+
+            text.setText(msg);
+            stage.setTitle("Confirm:");
+            stage.getIcons().add(new Image("/images/yellow-circle.png"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+
+            // Makes it so that error popup must be dealt
+            // with before being able to interact with the
+            // rest of the app
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            return stage;
+        } catch (Exception e) {
+            // If there is an error, log it and stop the application.
             Log.error(e.getMessage());
             System.exit(1);
             return null;
