@@ -1,11 +1,17 @@
 package ibia.app.controllers;
 
-import ibia.app.SceneUtil;
-import ibia.core.Log;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import ibia.core.Client;
+import ibia.core.Log;
+import ibia.core.entities.Conference;
+
+import ibia.app.App;
+import ibia.app.SceneUtil;
+
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class NewConference {
@@ -23,15 +29,18 @@ public class NewConference {
         if (name.isEmpty()) {
             SceneUtil.error("The conference name is required!").show();
         }
-        else if (name.length() > 50) {
-            SceneUtil.error("The conference name must be between 1 and 50 characters!\nTry using an abbreviation.").show();
+        else if (name.length() > 30) {
+            SceneUtil.error("The conference name must be between 1 and 30 characters!\nTry using an abbreviation.").show();
         }
         else {
             try {
-                throw new Exception("Unimplemented");
+                Conference conf = Client.addNewConference(name);
+                App.navigate(conf.getId());
+                closeStage(event);
             } catch (Exception e) {
                 Log.error(e.getMessage());
-                SceneUtil.error("Unimplemented!").show();
+                e.printStackTrace();
+                SceneUtil.error(e.getMessage()).show();
             }
         }
     }
@@ -41,6 +50,10 @@ public class NewConference {
      * Simply closes the conference details form.
      */
     @FXML protected void handleCancelNewConfAction(MouseEvent event) {
+        closeStage(event);
+    }
+
+    private void closeStage(MouseEvent event) {
         // cast source to Button so we can access window
         Button source = (Button)(event.getSource());
         // get window, cast it to Stage so we can close it
