@@ -23,7 +23,7 @@
             </Label>
          </children>
       </HBox>
-      <TextField fx:id="confName" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+      <TextField fx:id="name" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
@@ -33,7 +33,7 @@
       </TextField>
       <HBox alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="cancelNewConf" mnemonicParsing="false" onMouseClicked="#handleCancelNewConfAction" style="-fx-background-color: #6E6C78;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#handleCancelAction" style="-fx-background-color: #6E6C78;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="createNewConf" mnemonicParsing="false" onMouseClicked="#handleCreateNewConfAction" style="-fx-background-color: #6E6C78;" text="Create" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#handleCreateAction" style="-fx-background-color: #6E6C78;" text="Create" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>

@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
          <children>
-            <Text fx:id="homeCrumb" fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
@@ -37,7 +37,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="main" alignment="CENTER" minHeight="575.0" minWidth="1000.0" style="-fx-background-color: #18181C;" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" minHeight="575.0" minWidth="1000.0" style="-fx-background-color: #18181C;" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="CENTER" minHeight="575.0" minWidth="375.0" HBox.hgrow="ALWAYS">
                <children>
@@ -69,7 +69,7 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                            <children>
-                              <Group fx:id="resumeConf" onMouseClicked="#handleResumeConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleResumeConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="70.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Resume Conference" textFill="#bbbbbb">
@@ -94,7 +94,7 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <Group fx:id="newConf" onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleNewConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="New Conference" textFill="#bbbbbb">
@@ -118,7 +118,7 @@
                                     <Insets right="30.0" />
                                  </HBox.margin>
                               </Group>
-                              <Group fx:id="pastConf" onMouseClicked="#handlePastConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handlePastConfAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="8.0" layoutY="7.0" text="Past Conferences" textFill="#bbbbbb">
@@ -146,7 +146,7 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <Group fx:id="guides" onMouseClicked="#handleGuidesAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleGuidesAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Guides" textFill="#bbbbbb">
@@ -170,7 +170,7 @@
                                     <Insets right="30.0" />
                                  </HBox.margin>
                               </Group>
-                              <Group fx:id="about" onMouseClicked="#handleAboutAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleAboutAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="5.0" text="About" textFill="#bbbbbb">
@@ -198,7 +198,7 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <Group fx:id="feedback" onMouseClicked="#handleFeedbackAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleFeedbackAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="7.0" text="Feedback" textFill="#bbbbbb">
@@ -222,7 +222,7 @@
                                     <Insets right="30.0" />
                                  </HBox.margin>
                               </Group>
-                              <Group fx:id="settings" onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
+                              <Group onMouseClicked="#handleSettingsAction" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff">
                                  <children>
                                     <Rectangle fill="#363648" height="75.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
                                     <Label layoutX="9.0" layoutY="5.0" text="Settings" textFill="#bbbbbb">
