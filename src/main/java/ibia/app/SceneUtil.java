@@ -36,18 +36,25 @@ public final class SceneUtil {
     /**
      * Cache for holding loaded FXML files.
      */
-    private HashMap<String, Scene> cache = new HashMap<>();
+    private HashMap<String, Parent> cache = new HashMap<>();
 
     /**
-     * Loads and returns the scene defined by
+     * Loads and returns the content defined by
      * the specified fxml file, located in
      * resources/fxml
      * 
      * Example:
-     * Scene welcomeScene = Util.loadFXMLScene("Welcome");
+     * Parent welcomeScene = Util.loadFXML("Welcome");
      * 
      * @param name - The name of the fxml file (without the extension)
      * @return The scene loaded from the fxml file
+     */
+    public static Parent loadFXML(String name) throws IOException {
+        return instance._loadFXML(name);
+    }
+
+    /**
+     * Loads FXML content into a Scene
      */
     public static Scene loadFXMLScene(String name) throws IOException {
         return instance._loadFXMLScene(name);
@@ -75,19 +82,26 @@ public final class SceneUtil {
     }
 
     /**
-     * Implementation for Util.loadFXMLScene
+     * Implementation for Util.loadFXML
      */
-    private Scene _loadFXMLScene(String name) throws IOException {
+    private Parent _loadFXML(String name) throws IOException {
         if (cache.containsKey(name)) return cache.get(name);
 
         name = name.endsWith(".fxml") ? name : name + ".fxml";
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/" + name));
         Parent content = loader.load();
-        Scene scene = new Scene(content);
         
-        cache.put(name, scene);
-        return scene;
+        cache.put(name, content);
+        return content;
+    }
+
+    /**
+     * Implementation for Util.loadFXMLScene
+     */
+    private Scene _loadFXMLScene(String name) throws IOException {
+        Parent root = _loadFXML(name);
+        return new Scene(root);
     }
 
     /**
@@ -133,7 +147,7 @@ public final class SceneUtil {
         try {
             Stage stage = new Stage();
             // Load fxml file
-            Scene scene = _loadFXMLScene("Error");
+            Scene scene = _loadFXMLScene("Confirm");
             // Cast parent to pane, so that we can access the child node
             Pane pane = (Pane)scene.getRoot();
             // get child node and cast it to Vbox
