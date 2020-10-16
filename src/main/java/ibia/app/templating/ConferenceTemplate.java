@@ -13,28 +13,33 @@ import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
 import ibia.core.utils.Resolution;
-
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class ConferenceTemplate {
-    private Scene template;
+    private Parent template;
     private Conference instance;
 
     public ConferenceTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("CON")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.template = SceneUtil.loadFXMLScene("ConferenceTemplate");
+        this.template = SceneUtil.loadFXML("ConferenceTemplate");
         this.instance = DbDriver.fetchOne(Conference.class, id);
     }
 
-    public Scene fill() {
+    public Parent fill() throws IOException {
         fillBreadcrumbsNode();
         fillNameNode();
         fillIdNode();
         fillDetails();
         fillStatusButton();
+        fillCommitteesList();
 
         return template;
     }
@@ -107,6 +112,20 @@ public class ConferenceTemplate {
             btn.setText("Finish Conference");
         } else {
             btn.setText("Re-open Conference");
+        }
+    }
+
+    private void fillCommitteesList() throws IOException {
+        ArrayList<Committee> coms = DbDriver.findAll(Committee.class, c -> c.getConferenceId().equals(instance.getId()));
+        if (coms == null) return;
+        VBox vbox = (VBox)template.lookup("#committeesList");
+        ObservableList<Node> list = vbox.getChildren();
+        for (Committee com : coms) {
+            Scene item = SceneUtil.loadFXMLScene("CommitteeListItem");
+            HBox hbox = (HBox)item.getRoot();
+            Text name = (Text)hbox.getChildren().get(0);
+            name.setText(com.getName() + "#" + com.getId());
+            list.add(name);
         }
     }
 }
