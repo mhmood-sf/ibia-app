@@ -1,9 +1,10 @@
 package ibia.app;
 
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,11 +29,16 @@ public class App extends Application {
     private static Stage window;
 
     /**
+     * The scene being displayed on the main stage
+     */
+    private static Scene scene;
+
+    /**
      * Indicates the current scene being displayed.
      * The value is always an entity ID or "Home" (for the
      * welcome screen).
      */
-    private static String currentLocation;
+    private static String location;
 
     public static void main(String[] args) {
         Log.info("Initializing JavaFX stage.");
@@ -46,92 +52,103 @@ public class App extends Application {
     public void start(Stage stage) {
 
         try {
+            // First, set a scene to load initially
+            Pane root = new Pane();
+            root.setMinWidth(1000);
+            root.setMinHeight(600);
+            scene = new Scene(root);
+
+            // Load that scene and show the window
             window = stage;
             window.setTitle("ibia");
             window.getIcons().add(IBIA_ICON);
+            window.setMinWidth(1000);
+            window.setMinHeight(600 + 39); // Accomodate for title bar because JavaFX doesn't
+            window.setScene(scene);
             window.show();
+
+            // Then navigate to the Home screen, and start the application.
             App.navigate("Home");
         } catch (Exception e) {
             Log.error("Failed to load main window: " + e.getMessage());
+            e.printStackTrace();
             window.close();
             System.exit(1);
         }
     }
 
     /**
+     * Updates the scene on the application stage.
+     * @param scene the scene to display.
+     */
+    private static void updateScene(Parent content) {
+        scene.setRoot(content);
+    }
+
+    /**
+     * Get the current Scene displayed on the main stage
+    */
+    private static Scene getScene() {
+        return scene;
+    }
+
+    /**
      * Gets current location of the main application stage
      */
-    public static String getCurrentLocation() {
-        return currentLocation;
+    public static String getLocation() {
+        return location;
     }
 
     /**
      * Sets the internal stage location variable.
      * This is controlled by the App class. To change
      * the application's stage location, use App.navigate()
-     * @param location
+     * @param newLocation
      */
-    private static void setCurrentLocation(String location) {
-        currentLocation = location;
+    private static void setLocation(String newLocation) {
+        location = newLocation;
     }
 
     /**
      * Changes the scene displayed on the main application
-     * stage based on the location given. The location can
+     * stage based on the id given. The id can
      * be an entity ID, in which case it will call the
      * TemplateEngine to load and fill in the entity
      * template with data for the given ID and display it.
-     * The location may also be the string "Home", in which
+     * The id may also be the string "Home", in which
      * case the Home screen template will be loaded.
-     * @param location
+     * @param id
      */
-    public static void navigate(String location) throws IllegalArgumentException, IOException {
+    public static void navigate(String id) throws IllegalArgumentException, IOException {
         // If navigating to the same location, no need to update the scsene.
-        if (currentLocation != null && currentLocation.equals(location)) return;
+        if (location != null && location.equals(id)) return;
 
-        if (location.equals("Home")) {
-            Scene home = TemplateEngine.loadHome();
+        if (id.equals("Home")) {
+            Parent home = TemplateEngine.loadHome();
             updateScene(home);
         } else {
-            String entity = location.substring(0, 3);
+            String entity = id.substring(0, 3);
             switch (entity) {
                 case "CON":
-                    Scene conferenceScene = TemplateEngine.loadConference(location);
+                    Parent conferenceScene = TemplateEngine.loadConference(id);
                     updateScene(conferenceScene);
                     break;
                 case "COM":
-                    Scene committeeScene = TemplateEngine.loadCommittee(location);
+                    Parent committeeScene = TemplateEngine.loadCommittee(id);
                     updateScene(committeeScene);
                     break;
                 case "DEL":
-                    Scene delegateScene = TemplateEngine.loadDelegate(location);
+                    Parent delegateScene = TemplateEngine.loadDelegate(id);
                     updateScene(delegateScene);
                     break;
                 default:
                     throw new IllegalArgumentException(
-                        "Invalid location provided: " + location +
+                        "Invalid location provided: " + id +
                         "\nLocation must be an entity ID or 'Home'."
                         );
             }
         }
 
-        setCurrentLocation(location);
-    }
-
-    /**
-     * Updates the scene on the application stage.
-     * @param scene the scene to display.
-     */
-    private static void updateScene(Scene scene) {
-        // Hacky workaround for the resizing problem
-        // - setScene first - the Scene MUST be responsive
-        // update min height/width - automatically resizes scene
-        // the min height/width is taken from the scene and
-        // then 50 is added to both, to account for the extra
-        // space taken up by (i think) the native window bar at the top.
-        VBox container = (VBox)scene.getRoot();
-        window.setScene(scene);
-        window.setMinHeight(container.getMinHeight() + 40);
-        window.setMinWidth(container.getMinWidth() + 40);
+        setLocation(id);
     }
 }
