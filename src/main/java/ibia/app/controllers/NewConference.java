@@ -15,26 +15,26 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class NewConference {
-    @FXML TextField confName;
+    @FXML TextField name;
 
     /**
      * Event handler for mouse click on createNewConf.
      * Creates a new conference and opens the conference dashboard.
      */
     @FXML
-    protected void handleCreateNewConfAction(MouseEvent event) {        
-        String name = confName.getText();
+    protected void handleCreateAction(MouseEvent event) {        
+        String confName = name.getText();
 
         // validate form data
-        if (name.isEmpty()) {
+        if (confName.isEmpty()) {
             SceneUtil.error("The conference name is required!").show();
         }
-        else if (name.length() > 30) {
+        else if (confName.length() > 30) {
             SceneUtil.error("The conference name must be between 1 and 30 characters!\nTry using an abbreviation.").show();
         }
         else {
             try {
-                Conference conf = Client.addNewConference(name);
+                Conference conf = Client.addNewConference(confName);
                 App.navigate(conf.getId());
                 closeStage(event);
             } catch (Exception e) {
@@ -49,7 +49,7 @@ public class NewConference {
      * Event handler for mouse click on cancelNewConf.
      * Simply closes the conference details form.
      */
-    @FXML protected void handleCancelNewConfAction(MouseEvent event) {
+    @FXML protected void handleCancelAction(MouseEvent event) {
         closeStage(event);
     }
 

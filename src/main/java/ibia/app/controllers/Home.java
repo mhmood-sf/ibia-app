@@ -33,16 +33,15 @@ public class Home {
     @FXML
     protected void handleNewConfAction() {
         try {
-            Scene newConfScene = SceneUtil.loadFXMLScene("NewConference");
-            Stage newConfStage = new Stage();
+            Scene scene = SceneUtil.loadFXMLScene("NewConference");
+            Stage stage = new Stage();
 
-            newConfStage.setTitle("Create new conference");
-            newConfStage.setScene(newConfScene);
-            newConfStage.getIcons().add(App.IBIA_ICON);
-            newConfStage.setMinHeight(135);
-            newConfStage.setMinWidth(350);
-            newConfStage.initModality(Modality.APPLICATION_MODAL);
-            newConfStage.show();
+            stage.setTitle("Create new conference");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(App.IBIA_ICON);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
         } catch (Exception e) {
             SceneUtil.error("Failed to load window!").show();
         }
