@@ -2,7 +2,7 @@ package ibia.app.templating;
 
 import java.io.IOException;
 
-import javafx.scene.Scene;
+import javafx.scene.Parent;
 
 /**
  * Load scenes from the fxml templates.
@@ -14,7 +14,7 @@ public class TemplateEngine {
      * the db.
      * @return the updated scene.
      */
-    public static Scene loadHome() throws IOException {
+    public static Parent loadHome() throws IOException {
         return new HomeTemplate().fill();
     }
 
@@ -24,7 +24,7 @@ public class TemplateEngine {
      * the given ID.
      * @return the updated scene.
      */
-    public static Scene loadConference(String id) throws IllegalArgumentException, IOException {
+    public static Parent loadConference(String id) throws IllegalArgumentException, IOException {
         return new ConferenceTemplate(id).fill();
     }
 
@@ -34,7 +34,7 @@ public class TemplateEngine {
      * the given ID.
      * @return the updated scene.
      */
-    public static Scene loadCommittee(String id) throws IllegalArgumentException, IOException {
+    public static Parent loadCommittee(String id) throws IllegalArgumentException, IOException {
         return new CommitteeTemplate(id).fill();
     }
 
@@ -44,7 +44,7 @@ public class TemplateEngine {
      * the given ID.
      * @return the updated scene.
      */
-    public static Scene loadDelegate(String id) throws IllegalArgumentException, IOException {
+    public static Parent loadDelegate(String id) throws IllegalArgumentException, IOException {
         return new DelegateTemplate(id).fill();
     }
 }

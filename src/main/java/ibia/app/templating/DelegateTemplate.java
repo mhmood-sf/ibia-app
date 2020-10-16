@@ -8,25 +8,19 @@ import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class DelegateTemplate {
-    private Scene template;
-    private Parent root;
+    private Parent template;
     private Delegate instance;
 
     public DelegateTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("DEL")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.template = SceneUtil.loadFXMLScene("DelegateTemplate");
-        this.root = template.getRoot();
+        this.template = SceneUtil.loadFXML("DelegateTemplate");
         this.instance = DbDriver.fetchOne(Delegate.class, id);
     }
 
-    public Scene fill() {
+    public Parent fill() {
         fillBreadcrumbsNode();
         fillNameNode();
         fillIdNode();
@@ -34,33 +28,17 @@ public class DelegateTemplate {
         return template;
     }
 
-    private HBox getBreadcrumbsNode() {
-        VBox container = (VBox)template.getRoot();
-        return (HBox)container.getChildren().get(0);
-    }
-
     private void fillBreadcrumbsNode() {
-        getBreadcrumbsNode();
         Committee com = DbDriver.fetchOne(Committee.class, instance.getCommitteeId());
         DbDriver.fetchOne(Conference.class, com.getConferenceId());
         return;
     }
 
-    private Text getNameNode() {
-        return null;
-    }
-
     private void fillNameNode() {
-        getNameNode();
         return;
     }
 
-    private Text getIdNode() {
-        return null;
-    }
-
     private void fillIdNode() {
-        getIdNode();
         return;
     }
 }
