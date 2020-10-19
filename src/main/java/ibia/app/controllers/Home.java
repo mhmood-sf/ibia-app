@@ -2,6 +2,7 @@ package ibia.app.controllers;
 
 import javafx.fxml.FXML;
 import java.awt.Desktop;
+import java.io.IOException;
 import java.net.URI;
 
 import javafx.scene.Group;
@@ -17,14 +18,19 @@ import javafx.stage.Stage;
 import ibia.app.App;
 import ibia.app.SceneUtil;
 
-
 public class Home {
     /**
      * Event handler for mouse click on resumeConf card.
      */
     @FXML
-    protected void handleResumeConfAction() {
-        SceneUtil.error("Unimplemented!").show();
+    protected void handleResumeConfAction() throws IOException {
+        Scene scene = SceneUtil.loadFXMLScene("OngoingConferences", true);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.getIcons().add(App.IBIA_ICON);
+        stage.setTitle("Choose an ongoing conference:");
+        stage.show();
     }
 
     /**
@@ -33,7 +39,7 @@ public class Home {
     @FXML
     protected void handleNewConfAction() {
         try {
-            Scene scene = SceneUtil.loadFXMLScene("NewConference");
+            Scene scene = SceneUtil.loadFXMLScene("NewConference", true);
             Stage stage = new Stage();
 
             stage.setTitle("Create new conference");
@@ -75,7 +81,7 @@ public class Home {
     @FXML
     protected void handleAboutAction() {
         try {
-            Scene aboutScene = SceneUtil.loadFXMLScene("About");
+            Scene aboutScene = SceneUtil.loadFXMLScene("About", true);
             Stage aboutStage = new Stage();
 
             aboutStage.setTitle("About ibia");
