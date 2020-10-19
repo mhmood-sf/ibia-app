@@ -15,7 +15,7 @@ public class CommitteeTemplate {
     public CommitteeTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("COM")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.template = SceneUtil.loadFXML("CommitteeTemplate");
+        this.template = SceneUtil.loadFXML("CommitteeTemplate", true);
         this.instance = DbDriver.fetchOne(Committee.class, id);
     }
 

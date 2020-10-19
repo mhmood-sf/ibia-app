@@ -16,7 +16,7 @@ public class DelegateTemplate {
     public DelegateTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("DEL")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.template = SceneUtil.loadFXML("DelegateTemplate");
+        this.template = SceneUtil.loadFXML("DelegateTemplate", true);
         this.instance = DbDriver.fetchOne(Delegate.class, id);
     }
 

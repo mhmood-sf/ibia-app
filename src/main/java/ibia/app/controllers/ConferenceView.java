@@ -24,7 +24,7 @@ public class ConferenceView {
     protected void handleNewCommitteeAction(MouseEvent event) throws IOException {
         try {
             Stage stage = new Stage();
-            Scene scene = SceneUtil.loadFXMLScene("NewCommittee");
+            Scene scene = SceneUtil.loadFXMLScene("NewCommittee", true);
 
             stage.setTitle("Create new committee");
             stage.setScene(scene);

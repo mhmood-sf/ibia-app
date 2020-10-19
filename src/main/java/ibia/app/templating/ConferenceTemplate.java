@@ -29,7 +29,7 @@ public class ConferenceTemplate {
     public ConferenceTemplate(String id) throws IllegalArgumentException, IOException {
         if (!id.startsWith("CON")) throw new IllegalArgumentException("Invalid ID provided.");
 
-        this.template = SceneUtil.loadFXML("ConferenceTemplate");
+        this.template = SceneUtil.loadFXML("ConferenceTemplate", true);
         this.instance = DbDriver.fetchOne(Conference.class, id);
     }
 
@@ -121,7 +121,7 @@ public class ConferenceTemplate {
         VBox vbox = (VBox)template.lookup("#committeesList");
         ObservableList<Node> list = vbox.getChildren();
         for (Committee com : coms) {
-            Scene item = SceneUtil.loadFXMLScene("CommitteeListItem");
+            Scene item = SceneUtil.loadFXMLScene("CommitteeListItem", false);
             HBox hbox = (HBox)item.getRoot();
             Text name = (Text)hbox.getChildren().get(0);
             name.setText(com.getName() + "#" + com.getId());

@@ -46,18 +46,22 @@ public final class SceneUtil {
      * Example:
      * Parent welcomeScene = Util.loadFXML("Welcome");
      * 
-     * @param name - The name of the fxml file (without the extension)
+     * @param name the name of the fxml file (without the extension)
+     * @param useCache whether to cache to loaded fxml or not. In some cases
+     * it may be preferable not to cache (such as when using the same fxml
+     * multiple times within the same scene).
      * @return The scene loaded from the fxml file
      */
-    public static Parent loadFXML(String name) throws IOException {
-        return instance._loadFXML(name);
+    public static Parent loadFXML(String name, boolean useCache) throws IOException {
+        return instance._loadFXML(name, useCache);
     }
 
     /**
-     * Loads FXML content into a Scene
+     * Same as loadFXML, but puts the FXML into a Scene
+     * and returns the Scene.
      */
-    public static Scene loadFXMLScene(String name) throws IOException {
-        return instance._loadFXMLScene(name);
+    public static Scene loadFXMLScene(String name, boolean useCache) throws IOException {
+        return instance._loadFXMLScene(name, useCache);
     }
 
     /**
@@ -84,23 +88,23 @@ public final class SceneUtil {
     /**
      * Implementation for Util.loadFXML
      */
-    private Parent _loadFXML(String name) throws IOException {
-        if (cache.containsKey(name)) return cache.get(name);
+    private Parent _loadFXML(String name, boolean useCache) throws IOException {
+        if (useCache && cache.containsKey(name)) return cache.get(name);
 
         name = name.endsWith(".fxml") ? name : name + ".fxml";
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/" + name));
         Parent content = loader.load();
         
-        cache.put(name, content);
+        if (useCache) cache.put(name, content);
         return content;
     }
 
     /**
      * Implementation for Util.loadFXMLScene
      */
-    private Scene _loadFXMLScene(String name) throws IOException {
-        Parent root = _loadFXML(name);
+    private Scene _loadFXMLScene(String name, boolean useCache) throws IOException {
+        Parent root = _loadFXML(name, useCache);
         return new Scene(root);
     }
 
@@ -111,7 +115,7 @@ public final class SceneUtil {
         try {
             Stage stage = new Stage();
             // Load fxml file
-            Scene scene = _loadFXMLScene("Error");
+            Scene scene = _loadFXMLScene("Error", true);
             // Cast parent to pane, so that we can access the child node
             Pane pane = (Pane)scene.getRoot();
             // get child node and cast it to Vbox
@@ -147,7 +151,7 @@ public final class SceneUtil {
         try {
             Stage stage = new Stage();
             // Load fxml file
-            Scene scene = _loadFXMLScene("Confirm");
+            Scene scene = _loadFXMLScene("Confirm", true);
             // Cast parent to pane, so that we can access the child node
             Pane pane = (Pane)scene.getRoot();
             // get child node and cast it to Vbox
