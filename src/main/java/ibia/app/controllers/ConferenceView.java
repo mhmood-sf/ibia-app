@@ -43,9 +43,10 @@ public class ConferenceView {
     @FXML
     public void initialize() throws IOException {
         this.instance = DbDriver.fetchOne(Conference.class, App.getLocation());
-        fillBreadcrumbsNode();
-        fillNameNode();
-        fillIdNode();
+
+        fillBreadcrumbs();
+        fillName();
+        fillId();
         fillDetails();
         fillStatusButton();
         fillCommitteesList();
@@ -105,12 +106,10 @@ public class ConferenceView {
         });
 
         confirm.setOnMouseClicked(evt -> {
-            String confId = App.getLocation();
-            Conference instance = DbDriver.fetchOne(Conference.class, confId);
             DbDriver.deleteOne(instance);
-            stage.close();
             try {
                 App.navigate("Home");
+                stage.close();
             } catch (Exception e) {
                 // If Home failed to load, this is a fatal error
                 // and the application is exited.
@@ -118,6 +117,7 @@ public class ConferenceView {
                 System.exit(1);
             }
         });
+
         stage.show();
     }
 
@@ -151,15 +151,15 @@ public class ConferenceView {
     /*** Templating ***/
     /******************/
 
-    private void fillBreadcrumbsNode() {
+    private void fillBreadcrumbs() {
         conferenceCrumb.setText(instance.getName());
     }
 
-    private void fillNameNode() {
+    private void fillName() {
         name.setText(instance.getName());
     }
 
-    private void fillIdNode() {
+    private void fillId() {
         id.setText(instance.getId());
     }
 
