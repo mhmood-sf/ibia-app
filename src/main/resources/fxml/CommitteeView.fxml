@@ -17,7 +17,7 @@
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text fill="WHITE" onMouseClicked="#navigateHome" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
@@ -36,7 +36,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
+            <Text fx:id="conferenceCrumb" fill="WHITE" onMouseClicked="#navigateConference" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
+            <Text fx:id="committeeCrumb" fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
                <font>
                   <Font size="14.0" />
                </font>
@@ -68,7 +68,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
+                        <Text fx:id="name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
                            <font>
                               <Font size="42.0" />
                            </font>
@@ -84,7 +84,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Text fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+                        <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -164,7 +164,7 @@
                            <children>
                               <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="325.0" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
                                  <content>
-                                    <VBox id="committeesList" style="-fx-background-color: #18181C;" />
+                                    <VBox id="committeesList" fx:id="delegatesList" style="-fx-background-color: #18181C;" />
                                  </content>
                               </ScrollPane>
                            </children>
