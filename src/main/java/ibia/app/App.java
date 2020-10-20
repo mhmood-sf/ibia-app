@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import ibia.app.templating.TemplateEngine;
 import ibia.core.Log;
 
 /**
@@ -86,10 +85,11 @@ public class App extends Application {
     }
 
     /**
-     * Get the current Scene displayed on the main stage
+     * Get the root Node of the current scene
+     * displayed on the main stage
     */
-    private static Scene getScene() {
-        return scene;
+    private static Parent getRoot() {
+        return scene.getRoot();
     }
 
     /**
@@ -112,33 +112,32 @@ public class App extends Application {
     /**
      * Changes the scene displayed on the main application
      * stage based on the id given. The id can
-     * be an entity ID, in which case it will call the
-     * TemplateEngine to load and fill in the entity
-     * template with data for the given ID and display it.
-     * The id may also be the string "Home", in which
-     * case the Home screen template will be loaded.
+     * be an entity ID, in which case the ID's corresponding
+     * view will be loaded. The id may also be the string
+     * "Home", in which case the Home scene will be loaded.
      * @param id
      */
     public static void navigate(String id) throws IllegalArgumentException, IOException {
         // If navigating to the same location, no need to update the scsene.
         if (location != null && location.equals(id)) return;
-
+        // Otherwise, update App.location
+        setLocation(id);
         if (id.equals("Home")) {
-            Parent home = TemplateEngine.loadHome();
+            Parent home = SceneUtil.loadFXML("Home", true);
             updateScene(home);
         } else {
             String entity = id.substring(0, 3);
             switch (entity) {
                 case "CON":
-                    Parent conferenceScene = TemplateEngine.loadConference(id);
+                    Parent conferenceScene = SceneUtil.loadFXML("ConferenceView", true);
                     updateScene(conferenceScene);
                     break;
                 case "COM":
-                    Parent committeeScene = TemplateEngine.loadCommittee(id);
+                    Parent committeeScene = SceneUtil.loadFXML("CommitteeView", true);
                     updateScene(committeeScene);
                     break;
                 case "DEL":
-                    Parent delegateScene = TemplateEngine.loadDelegate(id);
+                    Parent delegateScene = SceneUtil.loadFXML("DelegateView", true);
                     updateScene(delegateScene);
                     break;
                 default:
@@ -148,7 +147,5 @@ public class App extends Application {
                         );
             }
         }
-
-        setLocation(id);
     }
 }

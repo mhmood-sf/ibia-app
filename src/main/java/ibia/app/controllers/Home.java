@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
+import java.util.ArrayList;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -17,8 +18,19 @@ import javafx.stage.Stage;
 
 import ibia.app.App;
 import ibia.app.SceneUtil;
+import ibia.core.DbDriver;
+import ibia.core.entities.Conference;
 
 public class Home {
+    @FXML protected Text resumeMsg;
+
+    @FXML
+    public void initialize() throws IOException {
+        ArrayList<Conference> confs = DbDriver.findAll(Conference.class, c -> c.isOngoing());
+        if (confs != null && confs.size() > 0) {
+            resumeMsg.setText("Click to view ongoing conferences");
+        }
+    }
     /**
      * Event handler for mouse click on resumeConf card.
      */

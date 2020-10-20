@@ -80,7 +80,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Text id="resumeMsg" fill="WHITE" layoutX="9.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You don't have any ongoing conferences. Start a new one below!">
+                                    <Text fx:id="resumeMsg" fill="WHITE" layoutX="9.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You don't have any ongoing conferences. Start a new one below!">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
