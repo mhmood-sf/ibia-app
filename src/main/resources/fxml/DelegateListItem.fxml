@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.DelegateListItem">
    <children>
-      <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="flag" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="25.0" />
          </HBox.margin>
       </ImageView>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DelegationName">
+      <Text fill="WHITE" onMouseClicked="#navigate" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="DelegationName">
          <font>
             <Font size="16.0" />
          </font>
@@ -24,12 +24,17 @@
             <Insets left="25.0" />
          </HBox.margin>
       </Text>
+      <Text fx:id="id" fill="#bbbbbb" strokeType="OUTSIDE" strokeWidth="0.0" text="#id">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
       <Pane HBox.hgrow="ALWAYS" />
       <Group>
          <children>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="83.0">
                <children>
-                  <TextField alignment="CENTER" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
+                  <TextField fx:id="speeches" alignment="CENTER" onInputMethodTextChanged="#updateSpeeches" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -38,7 +43,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="37.0">
                <children>
-                  <TextField alignment="CENTER" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
+                  <TextField fx:id="pois" alignment="CENTER" onInputMethodTextChanged="#updatePois" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -47,7 +52,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="118.0">
                <children>
-                  <TextField alignment="CENTER" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
+                  <TextField fx:id="amendments" alignment="CENTER" onInputMethodTextChanged="#updateAmendments" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -56,7 +61,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="73.0">
                <children>
-                  <TextField alignment="CENTER" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
+                  <TextField fx:id="motions" alignment="CENTER" onInputMethodTextChanged="#updateMotions" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-padding: 0;" text="0">
                      <font>
                         <Font size="16.0" />
                      </font>
