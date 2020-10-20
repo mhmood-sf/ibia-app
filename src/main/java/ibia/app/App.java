@@ -85,14 +85,6 @@ public class App extends Application {
     }
 
     /**
-     * Get the root Node of the current scene
-     * displayed on the main stage
-    */
-    private static Parent getRoot() {
-        return scene.getRoot();
-    }
-
-    /**
      * Gets current location of the main application stage
      */
     public static String getLocation() {
