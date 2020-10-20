@@ -41,6 +41,7 @@ public class Home {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(App.IBIA_ICON);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Choose an ongoing conference:");
         stage.show();
     }
