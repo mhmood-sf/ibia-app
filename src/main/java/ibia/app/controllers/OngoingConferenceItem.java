@@ -10,6 +10,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class OngoingConferenceItem {
     @FXML protected HBox container;
@@ -31,7 +32,9 @@ public class OngoingConferenceItem {
 
     @FXML
     protected void navigate(MouseEvent event) throws IOException, IllegalArgumentException {
-        String confId = id.getText();
+        String confId = id.getText().substring(1);
         App.navigate(confId);
+        Stage stage = (Stage)container.getScene().getWindow();
+        stage.close();
     }
 }
