@@ -64,6 +64,10 @@ public final class SceneUtil {
         return instance._loadFXMLScene(name, useCache);
     }
 
+    public static Stage loadPopupStage(String fxml, String title) throws IOException {
+        return instance._loadPopupStage(fxml, title);
+    }
+
     /**
      * Returns a Stage for showing an error window.
      * 
@@ -106,6 +110,18 @@ public final class SceneUtil {
     private Scene _loadFXMLScene(String name, boolean useCache) throws IOException {
         Parent root = _loadFXML(name, useCache);
         return new Scene(root);
+    }
+
+    private Stage _loadPopupStage(String fxml, String title) throws IOException {
+        Stage stage = new Stage();
+        Scene scene = _loadFXMLScene(fxml, true);
+
+        stage.setScene(scene);
+        stage.setTitle(title);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.getIcons().add(App.IBIA_ICON);
+        stage.setResizable(false);
+        return stage;
     }
 
     /**
