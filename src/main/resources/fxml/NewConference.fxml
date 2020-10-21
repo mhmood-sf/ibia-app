@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" minHeight="135.0" minWidth="350.0" style="-fx-background-color: #2a2a38;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.NewConference">
+<VBox alignment="CENTER" minHeight="135.0" minWidth="350.0" style="-fx-background-color: #2a2a38;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ibia.app.controllers.NewConference">
    <children>
       <HBox alignment="CENTER">
          <children>
