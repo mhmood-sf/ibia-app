@@ -19,7 +19,7 @@ public class OngoingConferences  {
         ArrayList<Conference> confs = DbDriver.findAll(Conference.class, c -> c.isOngoing());
         if (confs != null) {
             for (Conference conf : confs) {
-                HBox item = (HBox)SceneUtil.loadFXML("OngoingConferenceItem", false);
+                HBox item = (HBox)SceneUtil.loadFXML("ConferenceListItem", false);
                 Text name = (Text)item.lookup("#name");
                 name.setText(conf.getName());
                 Text id = (Text)item.lookup("#id");

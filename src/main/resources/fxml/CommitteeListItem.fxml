@@ -6,14 +6,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.CommitteeListItem">
+<HBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.CommitteeListItem">
    <children>
-      <Text fx:id="committee" fill="WHITE" onMouseClicked="#navigate" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee Name">
+      <Text fill="WHITE" onMouseClicked="#navigate" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee Name">
          <font>
             <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="#Committee Id">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Text>
    </children>

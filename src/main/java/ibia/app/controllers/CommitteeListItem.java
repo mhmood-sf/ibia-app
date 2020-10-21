@@ -8,13 +8,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class CommitteeListItem {
-    @FXML protected Text committee;
+    @FXML protected Text id;
 
     @FXML
     protected void navigate(MouseEvent event) throws IOException, IllegalArgumentException {
-        String str = committee.getText();
-        String id = str.split("#")[1];
-        App.navigate(id);
+        String comId = id.getText().substring(1);
+        App.navigate(comId);
     }
 
     /**

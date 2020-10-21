@@ -24,9 +24,9 @@
             <Insets left="25.0" />
          </HBox.margin>
       </Text>
-      <Text fx:id="id" fill="#bbbbbb" strokeType="OUTSIDE" strokeWidth="0.0" text="#id">
+      <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="#id">
          <font>
-            <Font size="16.0" />
+            <Font size="14.0" />
          </font>
       </Text>
       <Pane HBox.hgrow="ALWAYS" />

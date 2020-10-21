@@ -90,7 +90,7 @@
                            </font>
                         </Text>
                         <Pane HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleEditAction" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -101,7 +101,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleDeleteAction" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
@@ -171,7 +171,18 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Add New Committee" textFill="WHITE">
+                              <Button mnemonicParsing="false" onMouseClicked="#openTimer" style="-fx-background-color: #6E6C78;" text="Timer" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onMouseClicked="#addNewDelegate" style="-fx-background-color: #6E6C78;" text="Add New Delegate" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -182,7 +193,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Stats" textFill="WHITE">
+                              <Button mnemonicParsing="false" onMouseClicked="#openStats" style="-fx-background-color: #6E6C78;" text="Stats" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -193,7 +204,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Topics" textFill="WHITE">
+                              <Button mnemonicParsing="false" onMouseClicked="#openTopics" style="-fx-background-color: #6E6C78;" text="Topics" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -204,7 +215,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Resolutions" textFill="WHITE">
+                              <Button mnemonicParsing="false" onMouseClicked="#openResolutions" style="-fx-background-color: #6E6C78;" text="Resolutions" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets bottom="15.0" right="25.0" top="15.0" />
                                  </HBox.margin>

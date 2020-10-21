@@ -220,8 +220,10 @@ public class ConferenceView {
         for (Committee com : coms) {
             HBox hbox = (HBox)SceneUtil.loadFXML("CommitteeListItem", false);
             Text name = (Text)hbox.getChildren().get(0);
-            name.setText(com.getName() + "#" + com.getId());
-            list.add(name);
+            name.setText(com.getName());
+            Text comId = (Text)hbox.getChildren().get(1);
+            comId.setText("#" + com.getId());
+            list.add(hbox);
         }
     }
 }
