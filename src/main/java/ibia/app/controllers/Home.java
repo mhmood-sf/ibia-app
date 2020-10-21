@@ -1,22 +1,18 @@
 package ibia.app.controllers;
 
-import javafx.fxml.FXML;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
-import ibia.app.App;
 import ibia.app.SceneUtil;
 import ibia.core.DbDriver;
 import ibia.core.entities.Conference;
@@ -36,13 +32,7 @@ public class Home {
      */
     @FXML
     protected void handleResumeConfAction() throws IOException {
-        Scene scene = SceneUtil.loadFXMLScene("OngoingConferences", true);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.getIcons().add(App.IBIA_ICON);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Choose an ongoing conference:");
+        Stage stage = SceneUtil.loadPopupStage("OngoingConferences", "Choose an ongoing Conference");
         stage.show();
     }
 
@@ -50,20 +40,9 @@ public class Home {
      * Event handler for mouse click on newConf card.
      */
     @FXML
-    protected void handleNewConfAction() {
-        try {
-            Scene scene = SceneUtil.loadFXMLScene("NewConference", true);
-            Stage stage = new Stage();
-
-            stage.setTitle("Create new conference");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.getIcons().add(App.IBIA_ICON);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (Exception e) {
-            SceneUtil.error("Failed to load window!").show();
-        }
+    protected void handleNewConfAction() throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("NewConference", "Create new Conference");
+        stage.show();
     }
 
     /**
@@ -71,13 +50,7 @@ public class Home {
      */
     @FXML
     protected void handlePastConfAction() throws IOException {
-        Scene scene = SceneUtil.loadFXMLScene("PastConferences", true);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.getIcons().add(App.IBIA_ICON);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Choose a finished conference:");
+        Stage stage = SceneUtil.loadPopupStage("PastConferences", "Choose a finished Conference");
         stage.show();
     }
 
@@ -99,20 +72,9 @@ public class Home {
      * Event handler for mouse click on about card.
      */
     @FXML
-    protected void handleAboutAction() {
-        try {
-            Scene aboutScene = SceneUtil.loadFXMLScene("About", true);
-            Stage aboutStage = new Stage();
-
-            aboutStage.setTitle("About ibia");
-            aboutStage.setScene(aboutScene);
-            aboutStage.getIcons().add(App.IBIA_ICON);
-            aboutStage.setResizable(false);
-            aboutStage.initModality(Modality.APPLICATION_MODAL);
-            aboutStage.show();
-        } catch (Exception e) {
-            SceneUtil.error("Failed to load window!").show();
-        }
+    protected void handleAboutAction() throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("About", "About ibia");
+        stage.show();
     }
 
     /**
@@ -135,13 +97,7 @@ public class Home {
      */
     @FXML
     protected void handleViewLogsAction() throws IOException {
-        Stage stage = new Stage();
-        Scene scene = SceneUtil.loadFXMLScene("Logs", true);
-
-        stage.setScene(scene);
-        stage.setTitle("Logs");
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.getIcons().add(App.IBIA_ICON);
+        Stage stage = SceneUtil.loadPopupStage("Logs", "Logs");
         stage.show();
     }
 

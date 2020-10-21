@@ -14,6 +14,7 @@ import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
 import ibia.core.utils.Resolution;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -23,7 +24,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ConferenceView {
@@ -59,14 +59,7 @@ public class ConferenceView {
     @FXML
     protected void handleNewCommitteeAction(MouseEvent event) throws IOException {
         try {
-            Stage stage = new Stage();
-            Scene scene = SceneUtil.loadFXMLScene("NewCommittee", true);
-
-            stage.setTitle("Create new committee");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.getIcons().add(App.IBIA_ICON);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Stage stage = SceneUtil.loadPopupStage("NewCommittee", "Create new Committee");
             stage.show();
         } catch (Exception e) {
             SceneUtil.error("Failed to load window!").show();
