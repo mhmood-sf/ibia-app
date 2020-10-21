@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" minHeight="135.0" minWidth="350.0" style="-fx-background-color: #2a2a38;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ibia.app.controllers.NewConference">
+<VBox alignment="CENTER" minHeight="135.0" minWidth="350.0" style="-fx-background-color: #2a2a38;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.NewDelegate">
    <children>
       <HBox alignment="CENTER">
          <children>
@@ -25,7 +25,7 @@
             </Label>
          </children>
       </HBox>
-      <TextField fx:id="confName" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+      <TextField fx:id="name" promptText="Name (1-30 characters)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
@@ -33,7 +33,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="confName1" promptText="Delegation (Use custom or choose one below)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
+      <TextField fx:id="delegation" promptText="Delegation (Use custom or choose one below)" style="-fx-border-color: #18181c; -fx-border-width: 0 0 3 0; -fx-text-fill: WHITE; -fx-background-color: TRANSPARENT;">
          <font>
             <Font size="14.0" />
          </font>
@@ -43,9 +43,9 @@
       </TextField>
       <HBox alignment="CENTER_RIGHT">
          <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Choose Delegation" textFill="WHITE" />
+            <MenuButton fx:id="choose" mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Choose Delegation" textFill="WHITE" />
             <Pane HBox.hgrow="ALWAYS" />
-            <Button fx:id="cancelNewConf" mnemonicParsing="false" onMouseClicked="#handleCancelNewConfAction" style="-fx-background-color: #6E6C78;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#handleCancelNewConfAction" style="-fx-background-color: #6E6C78;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="createNewConf" mnemonicParsing="false" onMouseClicked="#handleCreateNewConfAction" style="-fx-background-color: #6E6C78;" text="Create" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="create" mnemonicParsing="false" onMouseClicked="#handleCreateNewConfAction" style="-fx-background-color: #6E6C78;" text="Create" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
