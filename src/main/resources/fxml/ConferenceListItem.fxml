@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="container" onMouseClicked="#navigate" onMouseEntered="#hoverItemEffectOn" onMouseExited="#hoverItemEffectOff" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.OngoingConferenceItem">
+<HBox fx:id="container" onMouseClicked="#navigate" onMouseEntered="#hoverItemEffectOn" onMouseExited="#hoverItemEffectOff" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.ConferenceListItem">
    <children>
       <VBox>
          <children>
@@ -16,7 +16,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text id="id" fx:id="id" fill="#bbbbbb" strokeType="OUTSIDE" strokeWidth="0.0" text="#ConferenceID">
+            <Text id="id" fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="#ConferenceID">
                <font>
                   <Font size="16.0" />
                </font>

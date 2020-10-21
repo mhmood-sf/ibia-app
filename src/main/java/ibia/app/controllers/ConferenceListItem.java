@@ -12,7 +12,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class OngoingConferenceItem {
+public class ConferenceListItem {
     @FXML protected HBox container;
     @FXML protected Text id;
 
