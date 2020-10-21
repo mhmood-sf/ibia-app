@@ -10,6 +10,7 @@ import ibia.core.Log;
 import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -77,8 +78,9 @@ public class CommitteeView {
     }
 
     @FXML
-    protected void openTimer(MouseEvent event) {
-        SceneUtil.error("Unimplemented!").show();
+    protected void openTimer(MouseEvent event) throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("SpeechTimer", "Timer");
+        stage.show();
     }
 
     @FXML
