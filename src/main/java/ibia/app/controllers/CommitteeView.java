@@ -76,6 +76,31 @@ public class CommitteeView {
         SceneUtil.error("Unimplemented!").show();
     }
 
+    @FXML
+    protected void openTimer(MouseEvent event) {
+        SceneUtil.error("Unimplemented!").show();
+    }
+
+    @FXML
+    protected void addNewDelegate(MouseEvent event) {
+        SceneUtil.error("Unimplemented!").show();
+    }
+
+    @FXML
+    protected void openStats(MouseEvent event) {
+        SceneUtil.error("Unimplemented!").show();
+    }
+
+    @FXML
+    protected void openTopics(MouseEvent event) {
+        SceneUtil.error("Unimplemented!").show();
+    }
+
+    @FXML
+    protected void openResolutions(MouseEvent event) {
+        SceneUtil.error("Unimplemented!").show();
+    }
+
     /**
      * Navigate back to home screen.
      */
