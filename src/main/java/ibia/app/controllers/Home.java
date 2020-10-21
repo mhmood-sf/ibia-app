@@ -70,8 +70,15 @@ public class Home {
      * Event handler for mouse click on pastConf card.
      */
     @FXML
-    protected void handlePastConfAction() {
-        SceneUtil.error("Unimplemented!").show();
+    protected void handlePastConfAction() throws IOException {
+        Scene scene = SceneUtil.loadFXMLScene("PastConferences", true);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.getIcons().add(App.IBIA_ICON);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Choose a finished conference:");
+        stage.show();
     }
 
     /**
@@ -127,8 +134,15 @@ public class Home {
      * Event handler for mouse click on exit card.
      */
     @FXML
-    protected void handleSettingsAction() {
-        SceneUtil.error("Unimplemented!").show();
+    protected void handleViewLogsAction() throws IOException {
+        Stage stage = new Stage();
+        Scene scene = SceneUtil.loadFXMLScene("Logs", true);
+
+        stage.setScene(scene);
+        stage.setTitle("Logs");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.getIcons().add(App.IBIA_ICON);
+        stage.show();
     }
 
     /**
