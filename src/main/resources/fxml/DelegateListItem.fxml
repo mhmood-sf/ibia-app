@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -15,6 +16,9 @@
          <HBox.margin>
             <Insets left="25.0" />
          </HBox.margin>
+         <image>
+            <Image url="@../images/un.png" />
+         </image>
       </ImageView>
       <Text fill="WHITE" onMouseClicked="#navigate" onMouseEntered="#hoverEffectOn" onMouseExited="#hoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="DelegationName">
          <font>
