@@ -1,11 +1,13 @@
 package ibia.app.controllers;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class SpeechTimer {
     @FXML protected Text minutes;
@@ -13,10 +15,22 @@ public class SpeechTimer {
     @FXML protected Button toggle;
 
     private boolean on = false;
-    private int s = 0;
-    private int m = 0;
+    private IntegerProperty mins = new SimpleIntegerProperty(0);
+    private IntegerProperty secs = new SimpleIntegerProperty(0);
+    
+    // JavaFX Timelines are mainly for animations,
+    // but can also be used for scheduling tasks
+    // on the same thread that handles the scenes
+    // and displays.
+    private Timeline timeline;
 
-    private Timer timer = new Timer();
+    @FXML
+    public void initialize() {
+        // Bind mins and secs to the Nodes' text properties
+        // so that they update automatically.
+        minutes.textProperty().bind(mins.asString());
+        seconds.textProperty().bind(secs.asString());
+    }
 
     @FXML
     protected void toggleTimer() {
@@ -32,31 +46,20 @@ public class SpeechTimer {
     }
 
     protected void startTimer() {
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                if (s >= 59) {
-                    s = 0;
-                    m += 1;
-                    seconds.setText("00");
-
-                    String mins = Integer.toString(m);
-                    if (mins.length() == 1) mins = "0" + mins;
-                    minutes.setText(mins);
-                } else {
-                    s += 1;
-
-                    String secs = Integer.toString(s);
-                    if (secs.length() == 1) secs = "0" + secs;
-                    seconds.setText(secs);
-                }
+        KeyFrame keyframe = new KeyFrame(Duration.seconds(1), event -> {
+            if (secs.greaterThanOrEqualTo(59).get()) {
+                mins.set(mins.get() + 1);
+                secs.set(0);
+            } else {
+                secs.set(secs.get() + 1);
             }
-        };
-
-        timer.scheduleAtFixedRate(task, 1000L, 1000L);
+        });
+        timeline = new Timeline(keyframe);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     protected void stopTimer() {
-        timer.cancel();
+        timeline.stop();
     }
 }
