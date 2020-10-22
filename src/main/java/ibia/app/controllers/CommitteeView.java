@@ -84,8 +84,9 @@ public class CommitteeView {
     }
 
     @FXML
-    protected void addNewDelegate(MouseEvent event) {
-        SceneUtil.error("Unimplemented!").show();
+    protected void addNewDelegate(MouseEvent event) throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("NewDelegate", "Create new Delegate");
+        stage.show();
     }
 
     @FXML
