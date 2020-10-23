@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import ibia.core.Log;
@@ -48,8 +49,7 @@ public class App extends Application {
      * Loads main stage and starts application.
      */
     @Override
-    public void start(Stage stage) {
-
+    public void start(Stage stage) throws FileNotFoundException, IOException {
         try {
             // First, set a scene to load initially
             Pane root = new Pane();
@@ -125,7 +125,9 @@ public class App extends Application {
                     updateScene(conferenceScene);
                     break;
                 case "COM":
-                    Parent committeeScene = SceneUtil.loadFXML("CommitteeView", true);
+                    // Do not cache so that the delegate list updates properly
+                    // every time.
+                    Parent committeeScene = SceneUtil.loadFXML("CommitteeView", false);
                     updateScene(committeeScene);
                     break;
                 case "DEL":
@@ -139,5 +141,11 @@ public class App extends Application {
                         );
             }
         }
+    }
+
+    public static void refresh() throws IOException {
+        String tmp = location;
+        setLocation("none");
+        App.navigate(tmp);
     }
 }
