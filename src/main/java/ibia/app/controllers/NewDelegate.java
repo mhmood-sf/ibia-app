@@ -20,13 +20,12 @@ import javafx.stage.Stage;
 public class NewDelegate {
     @FXML protected TextField name;
     @FXML protected TextField delegation;
-    @FXML protected Button cancel;
-    @FXML protected Button confirm;
     @FXML protected MenuButton choose;
 
     @FXML
     public void initialize() {
         ArrayList<String> countries = Country.listOfNames();
+        if (countries == null) return;
 
         for (String country : countries) {
             MenuItem choice = new MenuItem();
@@ -34,6 +33,8 @@ public class NewDelegate {
             choice.setOnAction((ActionEvent event) -> {
                 delegation.setText(country);
             });
+
+            choose.getItems().add(choice);
         }
     }
 
