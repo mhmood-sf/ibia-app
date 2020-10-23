@@ -100,7 +100,7 @@ public class ConferenceView {
         });
 
         confirm.setOnMouseClicked(evt -> {
-            DbDriver.deleteOne(instance);
+            Client.deleteConference(instance.getId());
             try {
                 App.navigate("Home");
                 stage.close();

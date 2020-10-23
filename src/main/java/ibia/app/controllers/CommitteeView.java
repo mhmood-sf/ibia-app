@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import ibia.app.App;
 import ibia.app.SceneUtil;
+import ibia.core.Client;
 import ibia.core.DbDriver;
 import ibia.core.Log;
 import ibia.core.entities.Committee;
@@ -58,7 +59,7 @@ public class CommitteeView {
         });
 
         confirm.setOnMouseClicked(evt -> {
-            DbDriver.deleteOne(instance);
+            Client.deleteCommittee(instance.getId());
             try {
                 App.navigate(instance.getConferenceId());
                 stage.close();
