@@ -83,8 +83,9 @@ public class ConferenceView {
     }
 
     @FXML
-    protected void handleEditAction(MouseEvent event) {
-        SceneUtil.error("Unimplemented!").show();
+    protected void handleEditAction(MouseEvent event) throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("EditConference", "Edit Conference");
+        stage.show();
     }
 
     @FXML
