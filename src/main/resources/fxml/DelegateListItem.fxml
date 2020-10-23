@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -27,6 +28,9 @@
          <HBox.margin>
             <Insets left="25.0" />
          </HBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Text>
       <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="#id">
          <font>
