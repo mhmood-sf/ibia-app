@@ -13,11 +13,12 @@ import ibia.core.entities.Delegate;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -73,8 +74,9 @@ public class CommitteeView {
     }
 
     @FXML
-    protected void handleEditAction(MouseEvent event) {
-        SceneUtil.error("Unimplemented!").show();
+    protected void handleEditAction(MouseEvent event) throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("EditCommittee", "Edit Committee");
+        stage.show();
     }
 
     @FXML
@@ -155,17 +157,18 @@ public class CommitteeView {
     }
 
     private void fillDelegatesList() throws IOException {
-        String id = instance.getId();
-        ArrayList<Delegate> dels = DbDriver.findAll(Delegate.class, d -> d.getCommitteeId().equals(id));
+        String comId = instance.getId();
+        ArrayList<Delegate> dels = DbDriver.findAll(Delegate.class, d -> d.getCommitteeId().equals(comId));
         if (dels == null) return;
+
         ObservableList<Node> list = delegatesList.getChildren();
         for (Delegate del : dels) {
-            HBox item = (HBox)SceneUtil.loadFXML("DelegateListItem", false);
-            Text delegation = (Text)item.getChildren().get(1);
-            Text delId = (Text)item.getChildren().get(2);
-            delegation.setText(del.getDelegation());
-            delId.setText("#" + del.getId());
-            list.add(item);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/DelegateListItem.fxml"));
+            Parent root = loader.load();
+            DelegateListItem controller = loader.getController();
+            controller.setInstanceId(del.getId());
+
+            list.add(root);
         }
     }
 }
