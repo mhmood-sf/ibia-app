@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ibia.app.controllers.Home">
+<VBox alignment="CENTER" minHeight="600.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.DelegateView">
    <children>
-      <HBox fx:id="breadcrumbs" alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
+      <HBox alignment="CENTER_LEFT" minHeight="25.0" minWidth="1000.0" style="-fx-background-color: #363648;" VBox.vgrow="NEVER">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+            <Text fill="WHITE" onMouseClicked="#navigateHome" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
+            <Text fill="WHITE" onMouseClicked="#navigateConference" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
+            <Text fill="WHITE" onMouseClicked="#navigateCommittee" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
                <font>
                   <Font size="14.0" />
                </font>
@@ -71,7 +71,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
+            <Text fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
                <font>
                   <Font size="14.0" />
                </font>
@@ -87,7 +87,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" minHeight="100.0" minWidth="200.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegation">
+                        <Text fx:id="delegation" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegation">
                            <font>
                               <Font size="36.0" />
                            </font>
@@ -103,13 +103,13 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Text fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+                        <Text fx:id="id" fill="#544646" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
                         <Pane HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleEditAction" style="-fx-background-color: #6E6C78;" text="Edit" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -120,7 +120,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleDeleteAction" style="-fx-background-color: #6E6C78;" text="Delete" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
