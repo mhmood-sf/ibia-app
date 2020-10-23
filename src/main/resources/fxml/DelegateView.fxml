@@ -4,6 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -33,7 +35,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" onMouseClicked="#navigateConference" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
+            <Text fx:id="conferenceCrumb" fill="WHITE" onMouseClicked="#navigateConference" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Conference">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,7 +54,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" onMouseClicked="#navigateCommittee" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
+            <Text fx:id="committeeCrumb" fill="WHITE" onMouseClicked="#navigateCommittee" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Committee">
                <font>
                   <Font size="14.0" />
                </font>
@@ -71,7 +73,7 @@
                   <Insets left="7.0" right="7.0" />
                </HBox.margin>
             </Label>
-            <Text fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
+            <Text fx:id="delegateCrumb" fill="WHITE" onMouseEntered="#crumbHoverEffectOn" onMouseExited="#crumbHoverEffectOff" strokeType="OUTSIDE" strokeWidth="0.0" text="Delegate">
                <font>
                   <Font size="14.0" />
                </font>
@@ -81,7 +83,7 @@
             </Text>
          </children>
       </HBox>
-      <HBox fx:id="main" alignment="CENTER" minHeight="575.0" minWidth="1000.0" style="-fx-background-color: #18181C;" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" minHeight="575.0" minWidth="1000.0" style="-fx-background-color: #18181C;" VBox.vgrow="ALWAYS">
          <children>
             <VBox alignment="TOP_CENTER" minHeight="575.0" minWidth="625.0" HBox.hgrow="ALWAYS">
                <children>
@@ -133,7 +135,181 @@
                         </Button>
                      </children>
                   </HBox>
-                  <VBox minHeight="475.0" minWidth="1000.0" VBox.vgrow="ALWAYS" />
+                  <VBox minHeight="475.0" minWidth="1000.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Details" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="Name" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="delName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DelName">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="Committee" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="comName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ComName">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="Speeches" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="speeches" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="S">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="PoIs" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="pois" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="P">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="Amendments" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="amendments" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox style="-fx-border-width: 0 0 2 0; -fx-border-color: #bbbbbb;">
+                                       <children>
+                                          <Label text="Motions" textFill="WHITE">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Pane HBox.hgrow="ALWAYS" />
+                                          <Text fx:id="motions" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="M">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label text="Resolutions Main-Submitted:" textFill="WHITE">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="resos" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="25.0" top="75.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <ImageView fx:id="flag" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/un.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></VBox>
                </children>
             </VBox>
          </children>
