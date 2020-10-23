@@ -19,7 +19,7 @@ public class EditCommittee {
      * Creates a new conference and opens the conference dashboard.
      */
     @FXML
-    protected void handleCreateAction(MouseEvent event) {        
+    protected void update(MouseEvent event) {        
         String comName = name.getText();
 
         // validate data
@@ -49,7 +49,7 @@ public class EditCommittee {
      * Event handler for mouse click on cancelNewConf.
      * Simply closes the conference details form.
      */
-    @FXML protected void handleCancelAction(MouseEvent event) {
+    @FXML protected void cancel(MouseEvent event) {
         closeStage(event);
     }
 

@@ -44,24 +44,35 @@ public class EditDelegate {
         // validate form data
         if (delName.isEmpty()) {
             SceneUtil.error("The delegate name is required!").show();
+            return;
         }
         else if (delName.length() > 120) {
             SceneUtil.error("The delegate name must be between 1 and 120 characters!").show();
+            return;
         }
-        else {
-            try {
-                String delId = App.getLocation();
-                Delegate del = DbDriver.fetchOne(Delegate.class, delId);
-                del.setName(name.getText());
-                del.setDelegation(delegation.getText());
-                DbDriver.updateOne(del);
-                App.refresh();
-                closeStage(event);
-            } catch (Exception e) {
-                Log.error(e.getMessage());
-                e.printStackTrace();
-                SceneUtil.error(e.getMessage()).show();
-            }
+
+        String delegationStr = delegation.getText();
+        if (delegationStr.isEmpty()) {
+            SceneUtil.error("The delegation name is required!").show();
+            return;
+        }
+        else if (delegationStr.length() > 120) {
+            SceneUtil.error("The delegation name must be between 1 and 120 characters!").show();
+            return;
+        }
+
+        try {
+            String delId = App.getLocation();
+            Delegate del = DbDriver.fetchOne(Delegate.class, delId);
+            del.setName(delName);
+            del.setDelegation(delegationStr);
+            DbDriver.updateOne(del);
+            App.refresh();
+            closeStage(event);
+        } catch (Exception e) {
+            Log.error(e.getMessage());
+            e.printStackTrace();
+            SceneUtil.error(e.getMessage()).show();
         }
     }
 
