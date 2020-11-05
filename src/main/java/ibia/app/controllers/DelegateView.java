@@ -42,7 +42,6 @@ public class DelegateView {
     public void initialize() {
         this.instance = DbDriver.fetchOne(Delegate.class, App.getLocation());
 
-
         fillBreadcrumbs();
         fillDelegation();
         fillId();
@@ -74,7 +73,7 @@ public class DelegateView {
         confirm.setOnMouseClicked(evt -> {
             Client.deleteDelegate(instance.getId());
             try {
-                App.navigate("Home");
+                App.navigate(instance.getCommitteeId());
                 stage.close();
             } catch (Exception e) {
                 // If Home failed to load, this is a fatal error
