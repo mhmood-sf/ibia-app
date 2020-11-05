@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ibia.app.controllers.TopicsListItem">
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ibia.app.controllers.TopicsListItem">
    <children>
       <TextField fx:id="topic" promptText="Topic..." style="-fx-border-width: 0 0 0 3; -fx-border-color: #6E6C78; -fx-background-color: transparent; -fx-text-fill: WHITE; -fx-margin: 5 15 5 15;" HBox.hgrow="ALWAYS">
          <font>
