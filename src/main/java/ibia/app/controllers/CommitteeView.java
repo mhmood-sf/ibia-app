@@ -99,13 +99,14 @@ public class CommitteeView {
 
     @FXML
     protected void openTopics(MouseEvent event) throws IOException {
-        Stage stage = SceneUtil.loadPopupStage("Topics", "Topics List");
+        Stage stage = SceneUtil.loadPopupStage("Topics", "Topics");
         stage.show();
     }
 
     @FXML
-    protected void openResolutions(MouseEvent event) {
-        SceneUtil.error("Unimplemented!").show();
+    protected void openResolutions(MouseEvent event) throws IOException {
+        Stage stage = SceneUtil.loadPopupStage("Resolutions", "Resolutions");
+        stage.show();
     }
 
     /**
