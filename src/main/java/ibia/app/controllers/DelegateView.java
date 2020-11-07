@@ -2,6 +2,7 @@ package ibia.app.controllers;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import ibia.app.App;
 import ibia.app.SceneUtil;
@@ -12,6 +13,7 @@ import ibia.core.entities.Committee;
 import ibia.core.entities.Conference;
 import ibia.core.entities.Delegate;
 import ibia.core.utils.Country;
+import ibia.core.utils.Resolution;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -137,7 +139,7 @@ public class DelegateView {
     /******************/
 
     private void fillBreadcrumbs() {
-        delegateCrumb.setText(instance.getName());
+        delegateCrumb.setText(instance.getDelegation());
         
         String comId = instance.getCommitteeId();
         Committee com = DbDriver.fetchOne(Committee.class, comId);
@@ -165,6 +167,9 @@ public class DelegateView {
         amendments.setText(c);
         String d = Integer.toString(instance.getMotions());
         motions.setText(d);
+        ArrayList<Resolution> submitted = DbDriver.findAll(Resolution.class, r -> r.getMainSubmitter().equals(instance.getId()));
+        int n = submitted != null ? submitted.size() : 0;
+        resos.setText(Integer.toString(n));
     }
 
     private void fillFlag() {
