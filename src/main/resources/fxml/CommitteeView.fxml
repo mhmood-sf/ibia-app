@@ -193,17 +193,6 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" onMouseClicked="#openStats" style="-fx-background-color: #6E6C78;" text="Stats" textFill="WHITE">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="15.0" right="15.0" top="15.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
                               <Button mnemonicParsing="false" onMouseClicked="#openTopics" style="-fx-background-color: #6E6C78;" text="Topics" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
