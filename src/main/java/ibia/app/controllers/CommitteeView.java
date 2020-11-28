@@ -47,6 +47,9 @@ public class CommitteeView {
     /*** FXML Controls ***/
     /*********************/
 
+    /**
+     * @param event the MouseEvent instance
+     */
     @FXML
     protected void handleDeleteAction(MouseEvent event) {
         Stage stage = SceneUtil.confirm("Are you sure you wish to delete this committee? This action cannot be reversed.");
@@ -109,9 +112,6 @@ public class CommitteeView {
         stage.show();
     }
 
-    /**
-     * Navigate back to home screen.
-     */
     @FXML
     protected void navigateHome(MouseEvent event) throws IOException, IllegalArgumentException {
         App.navigate("Home");
@@ -123,18 +123,12 @@ public class CommitteeView {
         App.navigate(id);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();

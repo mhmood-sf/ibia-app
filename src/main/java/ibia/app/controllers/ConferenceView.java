@@ -56,6 +56,10 @@ public class ConferenceView {
     /*** FXML Controls ***/
     /*********************/
 
+    /**
+     * @param event the MouseEvent instance
+     * @throws IOException - if loading FXML fails
+     */
     @FXML
     protected void handleNewCommitteeAction(MouseEvent event) throws IOException {
         try {
@@ -115,27 +119,18 @@ public class ConferenceView {
         stage.show();
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(false);
     }
 
-    /**
-     * Navigate back to home screen.
-     */
     @FXML
     protected void navigateHome(MouseEvent event) throws IOException, IllegalArgumentException {
         App.navigate("Home");

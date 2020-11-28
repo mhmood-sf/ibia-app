@@ -27,36 +27,25 @@ public class Home {
             resumeMsg.setText("Click to view ongoing conferences");
         }
     }
-    /**
-     * Event handler for mouse click on resumeConf card.
-     */
+
     @FXML
     protected void handleResumeConfAction() throws IOException {
         Stage stage = SceneUtil.loadPopupStage("OngoingConferences", "Choose an ongoing Conference");
         stage.show();
     }
 
-    /**
-     * Event handler for mouse click on newConf card.
-     */
     @FXML
     protected void handleNewConfAction() throws IOException {
         Stage stage = SceneUtil.loadPopupStage("NewConference", "Create new Conference");
         stage.show();
     }
 
-    /**
-     * Event handler for mouse click on pastConf card.
-     */
     @FXML
     protected void handlePastConfAction() throws IOException {
         Stage stage = SceneUtil.loadPopupStage("PastConferences", "Choose a finished Conference");
         stage.show();
     }
 
-    /**
-     * Event handler for mouse click on guides card.
-     */
     @FXML
     protected void handleGuidesAction() {
         String url = "https://github.com/quantomistro/ibia-app";
@@ -68,18 +57,12 @@ public class Home {
         }
     }
 
-    /**
-     * Event handler for mouse click on about card.
-     */
     @FXML
     protected void handleAboutAction() throws IOException {
         Stage stage = SceneUtil.loadPopupStage("About", "About ibia");
         stage.show();
     }
 
-    /**
-     * Event handler for mouse click on feedback card.
-     */
     @FXML
     protected void handleFeedbackAction() {
         String url = "https://github.com/quantomistro/ibia-app/issues/";
@@ -91,19 +74,12 @@ public class Home {
         }
     }
 
-
-    /**
-     * Event handler for mouse click on exit card.
-     */
     @FXML
     protected void handleViewLogsAction() throws IOException {
         Stage stage = SceneUtil.loadPopupStage("Logs", "Logs");
         stage.show();
     }
 
-    /**
-     * Hover effect for buttons
-     */
     @FXML
     protected void hoverEffectOn(MouseEvent event) {
         Group btn = (Group)event.getTarget();
@@ -113,9 +89,6 @@ public class Home {
         rect.setStroke(Color.WHITE);
     }
 
-    /**
-     * Hover effect for buttons
-     */
     @FXML
     protected void hoverEffectOff(MouseEvent event) {
         Group btn = (Group)event.getTarget();
@@ -125,29 +98,18 @@ public class Home {
         rect.setStroke(null);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(false);
     }
 
-    /**
-     * Runs a shell command to open the given `url`
-     * in the default web browser.
-     * @param url the url to open
-     */
     private void openURL(String url) throws Exception {
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             Desktop.getDesktop().browse(new URI(url));

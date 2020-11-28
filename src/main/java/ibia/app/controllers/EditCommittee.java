@@ -13,11 +13,7 @@ import javafx.stage.Stage;
 
 public class EditCommittee {
     @FXML protected TextField name;
-    
-    /**
-     * Event handler for mouse click on createNewConf.
-     * Creates a new conference and opens the conference dashboard.
-     */
+
     @FXML
     protected void update(MouseEvent event) {        
         String comName = name.getText();
@@ -45,10 +41,6 @@ public class EditCommittee {
         }
     }
 
-    /**
-     * Event handler for mouse click on cancelNewConf.
-     * Simply closes the conference details form.
-     */
     @FXML protected void cancel(MouseEvent event) {
         closeStage(event);
     }

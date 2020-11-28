@@ -61,7 +61,7 @@ public class DelegateListItem {
         });
     }
 
-    // Attaach listeners to update the
+    // Attach listeners to update the
     // db with the value of the cells
     // whenever the TextField goes out
     // of focus.
@@ -142,18 +142,12 @@ public class DelegateListItem {
         App.navigate(instance.getId());
     }
 
-    /**
-     * Hover effect
-     */
     @FXML
     protected void hoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect
-     */
     @FXML
     protected void hoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();

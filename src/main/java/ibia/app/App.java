@@ -47,6 +47,8 @@ public class App extends Application {
 
     /**
      * Loads main stage and starts application.
+     * 
+     * @param stage the main Stage
      */
     @Override
     public void start(Stage stage) throws FileNotFoundException, IOException {
@@ -78,6 +80,7 @@ public class App extends Application {
 
     /**
      * Updates the scene on the application stage.
+     * 
      * @param scene the scene to display.
      */
     private static void updateScene(Parent content) {
@@ -85,7 +88,7 @@ public class App extends Application {
     }
 
     /**
-     * Gets current location of the main application stage
+     * @return current location of the main application stage
      */
     public static String getLocation() {
         return location;
@@ -95,6 +98,7 @@ public class App extends Application {
      * Sets the internal stage location variable.
      * This is controlled by the App class. To change
      * the application's stage location, use App.navigate()
+     * 
      * @param newLocation
      */
     private static void setLocation(String newLocation) {
@@ -107,7 +111,10 @@ public class App extends Application {
      * be an entity ID, in which case the ID's corresponding
      * view will be loaded. The id may also be the string
      * "Home", in which case the Home scene will be loaded.
-     * @param id
+     * 
+     * @param id specifies where to navigate
+     * @throws IllegalArgumentException - if an invalid id is provided
+     * @throws IOException - if loading FXML fails
      */
     public static void navigate(String id) throws IllegalArgumentException, IOException {
         // If navigating to the same location, no need to update the scsene.
@@ -143,6 +150,10 @@ public class App extends Application {
         }
     }
 
+    /**
+     * Refreshes the current scene displayed by reloading it to the stage.
+     * @throws IOException - if loading FXML fails
+     */
     public static void refresh() throws IOException {
         String tmp = location;
         setLocation("none");

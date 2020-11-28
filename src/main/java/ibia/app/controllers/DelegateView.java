@@ -55,6 +55,10 @@ public class DelegateView {
     /*** FXML Controls ***/
     /*********************/
 
+    /**
+     * @param event the MouseEvent instance
+     * @throws IOException - if loading FXML fails
+     */
     @FXML
     protected void handleEditAction(MouseEvent event) throws IOException {
         Stage stage = SceneUtil.loadPopupStage("EditDelegate", "Edit Delegate");
@@ -88,44 +92,29 @@ public class DelegateView {
         stage.show();
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect for breadcrumbs
-     */
     @FXML
     protected void crumbHoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(false);
     }
 
-    /**
-     * Navigate back to home screen.
-     */
     @FXML
     protected void navigateHome(MouseEvent event) throws IOException {
         App.navigate("Home");
     }
 
-    /**
-     * Navigate back to parent committee
-     */
     @FXML
     protected void navigateCommittee(MouseEvent event) throws IOException {
         String id = instance.getCommitteeId();
         App.navigate(id);
     }
 
-    /**
-     * Navigate back to parent conference
-     */
     @FXML
     protected void navigateConference(MouseEvent event) throws IOException {
         String comId = instance.getCommitteeId();

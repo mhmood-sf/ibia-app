@@ -43,14 +43,12 @@ public final class SceneUtil {
      * the specified fxml file, located in
      * resources/fxml
      * 
-     * Example:
-     * Parent welcomeScene = Util.loadFXML("Welcome");
-     * 
      * @param name the name of the fxml file (without the extension)
      * @param useCache whether to cache to loaded fxml or not. In some cases
      * it may be preferable not to cache (such as when using the same fxml
      * multiple times within the same scene).
      * @return The scene loaded from the fxml file
+     * @throws IOException - if loading FXML fails
      */
     public static Parent loadFXML(String name, boolean useCache) throws IOException {
         return instance._loadFXML(name, useCache);
@@ -59,21 +57,34 @@ public final class SceneUtil {
     /**
      * Same as loadFXML, but puts the FXML into a Scene
      * and returns the Scene.
+     * 
+     * @param name name of the FXML file
+     * @param useCache whether to cache the loaded FXML or not
+     * @return the Scene created from the FXML
+     * @throws IOException - if loading FXML fails
      */
     public static Scene loadFXMLScene(String name, boolean useCache) throws IOException {
         return instance._loadFXMLScene(name, useCache);
     }
 
-    public static Stage loadPopupStage(String fxml, String title) throws IOException {
-        return instance._loadPopupStage(fxml, title);
+    /**
+     * Useful for quickly loading FXML with default settings
+     * to function as a popup window.
+     * 
+     * @param name name of the FXML file
+     * @param title title for the popup window
+     * @return the Stage created from the FXML
+     * @throws IOException - if loading FXML fails
+     */
+    public static Stage loadPopupStage(String name, String title) throws IOException {
+        return instance._loadPopupStage(name, title);
     }
 
     /**
-     * Returns a Stage for showing an error window.
+     * Returns a Stage for displaying errors.
      * 
-     * Example:
-     * Stage error = SceneUtil.error("My error message");
-     * error.show();
+     * @param msg the error msg
+     * @return the created Stage
      */
     public static Stage error(String msg) {
         return instance._error(msg);
@@ -82,8 +93,9 @@ public final class SceneUtil {
     /**
      * Returns a stage showing a confirmation message,
      * along with Confirm and Cancel buttons.
-     * @param msg
-     * @return
+     * 
+     * @param msg the confirmation message
+     * @return the created Stage
      */
     public static Stage confirm(String msg) {
         return instance._confirm(msg);
@@ -112,9 +124,12 @@ public final class SceneUtil {
         return new Scene(root);
     }
 
-    private Stage _loadPopupStage(String fxml, String title) throws IOException {
+    /**
+     * Implementation for Util.loadPopupStage
+     */
+    private Stage _loadPopupStage(String name, String title) throws IOException {
         Stage stage = new Stage();
-        Scene scene = _loadFXMLScene(fxml, true);
+        Scene scene = _loadFXMLScene(name, true);
 
         stage.setScene(scene);
         stage.setTitle(title);
@@ -163,7 +178,7 @@ public final class SceneUtil {
     /**
      * Implementation for SceneUtil.confirm
      */
-    public Stage _confirm(String msg) {
+    private Stage _confirm(String msg) {
         try {
             Stage stage = new Stage();
             // Load fxml file

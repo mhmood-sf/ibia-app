@@ -16,18 +16,12 @@ public class CommitteeListItem {
         App.navigate(comId);
     }
 
-    /**
-     * Hover effect
-     */
     @FXML
     protected void hoverEffectOn(MouseEvent event) {
         Text text = (Text)event.getTarget();
         text.setUnderline(true);
     }
 
-    /**
-     * Hover effect
-     */
     @FXML
     protected void hoverEffectOff(MouseEvent event) {
         Text text = (Text)event.getTarget();
