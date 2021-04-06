@@ -7,7 +7,7 @@
 ## What is this?
 It's meant to be an MUN conference management app.
 
-**NOTE:** This is just the JavaFX front-end. The back-end is a separate library, and has a separate repo: [quantomistro/ibia-core-java](https://github.com/quantomistro/ibia-core-java)
+**NOTE:** This is just the JavaFX front-end. The back-end is a separate library, and has a separate repo: [quintik/ibia-core-java](https://github.com/quintik/ibia-core-java)
 
 ## Installation
 Check releases. JDK 8+ preferable.
@@ -21,4 +21,5 @@ Run `gradlew tasks` to view a list of all available gradle tasks.
 No contributions allowed! It's a graded school assignment! 😮
 
 ## License
-[GPL-3.0](https://github.com/quantomistro/ibia-app/blob/master/LICENSE)
+[GPL-3.0](https://github.com/quintik/ibia-app/blob/master/LICENSE)
+
