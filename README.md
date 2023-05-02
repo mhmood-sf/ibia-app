@@ -6,7 +6,7 @@
 ## What is this?
 It's meant to be an MUN conference management app.
 
-**NOTE:** This is just the JavaFX front-end. The back-end is a separate library, and has a separate repo: [quintik/ibia-core-java](https://github.com/quintik/ibia-core-java)
+**NOTE:** This is just the JavaFX front-end. The back-end is a separate library, and has a separate repo: [mhmoooods/ibia-core-java](https://github.com/mhmoooods/ibia-core-java)
 
 ## Installation
 Check releases. JDK 8+ preferable.
