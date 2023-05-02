@@ -17,5 +17,4 @@ The project is built with gradle. Clone the repo, execute the `gradlew` script, 
 Run `gradlew tasks` to view a list of all available gradle tasks.
 
 ## License
-[GPL-3.0](https://github.com/quintik/ibia-app/blob/master/LICENSE)
-
+[GPL-3.0](https://github.com/mhmoooods/ibia-app/blob/master/LICENSE)
